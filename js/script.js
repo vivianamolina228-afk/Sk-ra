@@ -3,16 +3,16 @@ const heroCard = document.querySelector('.hero-card');
 window.addEventListener('mousemove', (e) => {
 
     const x =
-    (window.innerWidth / 2 - e.pageX) / 50;
+    (window.innerWidth / 2 - e.pageX) / 80;
 
     const y =
-    (window.innerHeight / 2 - e.pageY) / 50;
+    (window.innerHeight / 2 - e.pageY) / 80;
 
     heroCard.style.transform =
     `rotateY(${x}deg) rotateX(${-y}deg)`;
 });
 
-/* PROMO HOVER */
+/* PROMO GLOW */
 
 const promoCards =
 document.querySelectorAll('.promo-card');
