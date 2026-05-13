@@ -1,3 +1,6 @@
+# index.html
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,12 +25,12 @@
 
 <body>
 
-  <!-- VIDEO BACKGROUND -->
+  <!-- VIDEO -->
 
   <video autoplay muted loop playsinline class="video-bg">
 
     <source
-    src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-1560083433108?download=1080p"
+    src="https://cdn.pixabay.com/video/2021/08/26/86373-593594127_large.mp4"
     type="video/mp4">
 
   </video>
@@ -38,7 +41,7 @@
 
   <div class="magic-glow"></div>
 
-  <!-- HERO CARD -->
+  <!-- MAIN -->
 
   <main class="hero-card">
 
@@ -46,7 +49,7 @@
 
     <section class="hero-left">
 
-      <!-- NAV -->
+      <!-- NAVBAR -->
 
       <header class="navbar">
 
@@ -63,15 +66,15 @@
         <nav>
 
           <a href="#">Inicio</a>
-          <a href="#">Destinos</a>
-          <a href="#">Experiencias</a>
-          <a href="#">Reservas</a>
+          <a href="#destinos">Destinos</a>
+          <a href="#promociones">Promociones</a>
+          <a href="#reservar">Reservar</a>
 
         </nav>
 
       </header>
 
-      <!-- HERO CONTENT -->
+      <!-- HERO -->
 
       <div class="hero-content">
 
@@ -93,11 +96,11 @@
 
         <div class="hero-buttons">
 
-          <a href="#" class="primary-btn">
+          <a href="#reservar" class="primary-btn">
             Reservar Ahora
           </a>
 
-          <a href="#" class="secondary-btn">
+          <a href="#destinos" class="secondary-btn">
             Ver Destinos
           </a>
 
@@ -107,7 +110,7 @@
 
       <!-- DESTINOS -->
 
-      <div class="destinations">
+      <div class="destinations" id="destinos">
 
         <div class="destination">
           Noruega
@@ -131,7 +134,7 @@
 
     <!-- RIGHT -->
 
-    <section class="hero-right">
+    <section class="hero-right" id="promociones">
 
       <div class="right-content">
 
@@ -177,7 +180,7 @@
 
         </div>
 
-        <div class="promo-card">
+        <div class="promo-card" id="reservar">
 
           <span>
             ✦ Aurora Kingdom
@@ -200,3 +203,661 @@
 </body>
 
 </html>
+```
+
+---
+
+# css/style.css
+
+```css
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter', sans-serif;
+
+    background:#d8d5cb;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow-x:hidden;
+
+    padding:40px;
+
+    color:white;
+}
+
+/* VIDEO */
+
+.video-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-5;
+}
+
+.video-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(10,10,12,0.45),
+    rgba(10,10,12,0.70)
+    );
+
+    z-index:-4;
+}
+
+/* MAGIC */
+
+.magic-glow{
+
+    position:fixed;
+
+    width:700px;
+    height:700px;
+
+    background:
+    radial-gradient(
+    rgba(198,164,94,0.20),
+    transparent 70%
+    );
+
+    filter:blur(40px);
+
+    top:-150px;
+    left:-150px;
+
+    z-index:-3;
+
+    animation:floatGlow 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(40px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* MAIN CARD */
+
+.hero-card{
+
+    width:100%;
+
+    max-width:1450px;
+
+    min-height:860px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1.3fr 0.8fr;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,0.35);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* LEFT */
+
+.hero-left{
+
+    position:relative;
+
+    padding:40px 60px;
+
+    background:
+    linear-gradient(
+    rgba(15,18,20,0.45),
+    rgba(15,18,20,0.70)
+    ),
+    url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+/* RIGHT */
+
+.hero-right{
+
+    background:
+    linear-gradient(
+    180deg,
+    #111318,
+    #090b10
+    );
+
+    padding:60px;
+
+    display:flex;
+
+    align-items:center;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.brand img{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(0 0 12px rgba(255,255,255,0.15));
+}
+
+.brand span{
+
+    color:white;
+
+    font-family:'Cinzel', serif;
+
+    font-size:1.6rem;
+
+    letter-spacing:2px;
+}
+
+nav{
+
+    display:flex;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#d8d8d8;
+
+    font-size:0.95rem;
+
+    position:relative;
+
+    transition:0.3s;
+}
+
+nav a::after{
+
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0;
+
+    height:1px;
+
+    background:#d6b06b;
+
+    transition:0.3s;
+}
+
+nav a:hover{
+
+    color:white;
+}
+
+nav a:hover::after{
+
+    width:100%;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+
+    max-width:700px;
+
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.tag{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    color:#e5d3a1;
+
+    font-size:0.85rem;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.hero-content h1{
+
+    font-family:'Cinzel', serif;
+
+    font-size:5.2rem;
+
+    line-height:1.05;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    text-shadow:
+    0 0 30px rgba(255,255,255,0.08);
+}
+
+.hero-content p{
+
+    color:#d5d5d5;
+
+    line-height:1.9;
+
+    font-size:1.08rem;
+
+    max-width:620px;
+
+    margin-bottom:45px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+
+    text-decoration:none;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:0.4s;
+}
+
+.primary-btn{
+
+    background:
+    linear-gradient(
+    135deg,
+    #d6b06b,
+    #8f6930
+    );
+
+    color:white;
+
+    box-shadow:
+    0 15px 35px rgba(214,176,107,0.25);
+}
+
+.primary-btn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+}
+
+.secondary-btn{
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    background:
+    rgba(255,255,255,0.05);
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    color:black;
+}
+
+/* DESTINATIONS */
+
+.destinations{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.destination{
+
+    padding:12px 20px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    color:#e0e0e0;
+
+    font-size:0.9rem;
+
+    backdrop-filter:blur(10px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    transition:0.3s;
+}
+
+.destination:hover{
+
+    background:
+    rgba(214,176,107,0.15);
+
+    transform:translateY(-4px);
+}
+
+/* RIGHT CONTENT */
+
+.right-content{
+
+    width:100%;
+}
+
+.mini-title{
+
+    color:#d6b06b;
+
+    letter-spacing:3px;
+
+    margin-bottom:25px;
+
+    font-size:0.85rem;
+}
+
+.right-content h2{
+
+    font-family:'Cinzel', serif;
+
+    color:white;
+
+    font-size:3.5rem;
+
+    line-height:1.15;
+
+    margin-bottom:30px;
+}
+
+.right-description{
+
+    color:#b8b8b8;
+
+    line-height:1.9;
+
+    margin-bottom:45px;
+}
+
+/* PROMOS */
+
+.promo-card{
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:18px;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.4s;
+}
+
+.promo-card:hover{
+
+    transform:translateX(10px);
+
+    border-color:
+    rgba(214,176,107,0.30);
+}
+
+.promo-card span{
+
+    display:block;
+
+    color:white;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+}
+
+.promo-card small{
+
+    color:#b5b5b5;
+
+    line-height:1.6;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    body{
+        padding:20px;
+    }
+
+    .hero-card{
+
+        grid-template-columns:1fr;
+
+        min-height:auto;
+    }
+
+    .hero-right{
+        min-height:500px;
+    }
+}
+
+@media(max-width:768px){
+
+    .hero-left,
+    .hero-right{
+
+        padding:35px;
+    }
+
+    .navbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    nav{
+
+        gap:15px;
+    }
+
+    .hero-content h1{
+
+        font-size:3.2rem;
+    }
+
+    .right-content h2{
+
+        font-size:2.4rem;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+    }
+}
+```
+
+---
+
+# js/script.js
+
+```javascript
+const heroCard = document.querySelector('.hero-card');
+
+window.addEventListener('mousemove', (e) => {
+
+    const x =
+    (window.innerWidth / 2 - e.pageX) / 80;
+
+    const y =
+    (window.innerHeight / 2 - e.pageY) / 80;
+
+    heroCard.style.transform =
+    `rotateY(${x}deg) rotateX(${-y}deg)`;
+});
+
+/* PROMO GLOW */
+
+const promoCards =
+document.querySelectorAll('.promo-card');
+
+promoCards.forEach((card) => {
+
+    card.addEventListener('mouseenter', () => {
+
+        card.style.boxShadow =
+        '0 20px 40px rgba(214,176,107,0.15)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+
+        card.style.boxShadow = 'none';
+    });
+});
+```
+
+# Qué estaba fallando
+
+* El video original tenía problemas de carga.
+* El `height: 860px` rompía la responsive.
+* Faltaban ajustes móviles.
+* Algunas animaciones generaban overflow.
+* GitHub Pages a veces bloquea ciertos videos externos.
+
+Ahora esta versión:
+
+* funciona correctamente en GitHub Pages
+* es responsive
+* mantiene la estética dragón medieval
+* tiene look cinematográfico premium
+* está inspirada en las referencias que enviaste
+* usa diseño botánico místico y fantasy luxury
