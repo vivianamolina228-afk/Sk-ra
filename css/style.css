@@ -14,9 +14,18 @@ body{
 
     overflow-x:hidden;
 
-    background:#07110d;
+    background:
+    linear-gradient(
+    135deg,
+    #0d1117,
+    #1a1f25,
+    #263238,
+    #12161b
+    );
 
-    color:#f3f3f3;
+    color:white;
+
+    position:relative;
 }
 
 /* VIDEO FONDO */
@@ -36,12 +45,12 @@ body{
     z-index:-10;
 
     filter:
-    saturate(1.1)
-    brightness(0.6)
-    contrast(1.05);
+    brightness(0.45)
+    contrast(1.1)
+    saturate(1.1);
 }
 
-/* OVERLAY */
+/* OVERLAY OSCURO */
 
 .video-overlay{
 
@@ -51,14 +60,14 @@ body{
 
     background:
     linear-gradient(
-    rgba(5,12,10,0.78),
-    rgba(7,15,12,0.88)
+    rgba(7,10,12,0.78),
+    rgba(12,16,18,0.88)
     );
 
     z-index:-9;
 }
 
-/* BRILLO BOTANICO */
+/* AURORA */
 
 body::before{
 
@@ -69,42 +78,31 @@ body::before{
     inset:0;
 
     background:
-    radial-gradient(circle at top left,
-    rgba(120,255,180,0.08),
-    transparent 35%),
+    radial-gradient(
+    circle at top left,
+    rgba(140,200,170,0.10),
+    transparent 35%
+    ),
 
-    radial-gradient(circle at bottom right,
-    rgba(212,176,111,0.10),
-    transparent 35%),
+    radial-gradient(
+    circle at top right,
+    rgba(80,120,200,0.08),
+    transparent 40%
+    ),
 
-    radial-gradient(circle at center,
-    rgba(255,255,255,0.03),
-    transparent 55%);
+    radial-gradient(
+    circle at bottom,
+    rgba(201,168,106,0.08),
+    transparent 45%
+    );
+
+    animation:
+    mysticalGlow 12s ease-in-out infinite;
 
     z-index:-8;
-
-    animation:forestGlow 10s ease-in-out infinite;
 }
 
-@keyframes forestGlow{
-
-    0%{
-        opacity:0.7;
-        transform:scale(1);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.04);
-    }
-
-    100%{
-        opacity:0.7;
-        transform:scale(1);
-    }
-}
-
-/* PARTICULAS */
+/* PARTÍCULAS */
 
 body::after{
 
@@ -115,15 +113,37 @@ body::after{
     inset:0;
 
     background-image:
-    radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+    radial-gradient(
+    rgba(255,255,255,0.12) 1px,
+    transparent 1px
+    );
 
-    background-size:90px 90px;
+    background-size:4px 4px;
 
-    opacity:0.12;
+    opacity:0.08;
 
-    animation:particlesMove 30s linear infinite;
+    animation:
+    particlesMove 18s linear infinite;
 
     z-index:-7;
+}
+
+@keyframes mysticalGlow{
+
+    0%{
+        opacity:0.5;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
+    100%{
+        opacity:0.5;
+        transform:scale(1);
+    }
 }
 
 @keyframes particlesMove{
@@ -134,6 +154,44 @@ body::after{
 
     to{
         transform:translateY(-120px);
+    }
+}
+
+/* BRUMA */
+
+.mist{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.03),
+    transparent 60%
+    );
+
+    filter:blur(40px);
+
+    animation:
+    mistMove 14s ease-in-out infinite;
+
+    z-index:-6;
+}
+
+@keyframes mistMove{
+
+    0%{
+        transform:translateX(-20px);
+    }
+
+    50%{
+        transform:translateX(20px);
+    }
+
+    100%{
+        transform:translateX(-20px);
     }
 }
 
@@ -156,12 +214,12 @@ body::after{
     align-items:center;
 
     background:
-    rgba(6,10,8,0.38);
+    rgba(8,10,12,0.32);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
     border-bottom:
-    1px solid rgba(255,255,255,0.06);
+    1px solid rgba(255,255,255,0.08);
 
     z-index:999;
 }
@@ -179,10 +237,10 @@ body::after{
 
 .logo img{
 
-    height:62px;
+    height:60px;
 
     filter:
-    drop-shadow(0 0 12px rgba(120,255,180,0.22));
+    drop-shadow(0 0 15px rgba(255,255,255,0.18));
 }
 
 .brand-text h2{
@@ -193,16 +251,14 @@ body::after{
 
     letter-spacing:2px;
 
-    color:#ffffff;
+    color:white;
 }
 
 .brand-text p{
 
-    color:#a8c7b3;
+    color:#d2d2d2;
 
     font-size:0.85rem;
-
-    letter-spacing:1px;
 }
 
 /* MENU */
@@ -216,15 +272,13 @@ nav{
 
 nav a{
 
+    color:#e4e4e4;
+
     text-decoration:none;
 
-    color:#d8e8dd;
-
-    font-weight:500;
+    transition:0.3s;
 
     position:relative;
-
-    transition:0.4s;
 }
 
 nav a::after{
@@ -234,7 +288,7 @@ nav a::after{
     position:absolute;
 
     left:0;
-    bottom:-7px;
+    bottom:-8px;
 
     width:0;
 
@@ -243,21 +297,21 @@ nav a::after{
     background:
     linear-gradient(
     90deg,
-    #78ffb4,
-    #d4b06f
+    #d4b06f,
+    #8fd3c1
     );
 
     transition:0.4s;
 }
 
-nav a:hover{
-
-    color:white;
-}
-
 nav a:hover::after{
 
     width:100%;
+}
+
+nav a:hover{
+
+    color:white;
 }
 
 /* HERO */
@@ -273,6 +327,8 @@ nav a:hover::after{
     justify-content:center;
 
     padding:120px 7%;
+
+    position:relative;
 }
 
 .hero-card{
@@ -288,26 +344,30 @@ nav a:hover::after{
     gap:50px;
 
     background:
-    rgba(8,14,11,0.45);
+    linear-gradient(
+    135deg,
+    rgba(18,22,28,0.72),
+    rgba(26,32,38,0.55)
+    );
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:40px;
+    border-radius:42px;
 
     overflow:hidden;
 
     backdrop-filter:blur(20px);
 
     box-shadow:
-    0 30px 100px rgba(0,0,0,0.45);
+    0 25px 80px rgba(0,0,0,0.35);
 
-    padding:80px;
+    padding:75px;
 
     position:relative;
 }
 
-/* EFECTO MUSGO */
+/* BRILLO */
 
 .hero-card::before{
 
@@ -318,91 +378,80 @@ nav a:hover::after{
     inset:0;
 
     background:
-    radial-gradient(circle at top left,
-    rgba(120,255,180,0.08),
-    transparent 30%),
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.04),
+    transparent
+    );
 
-    radial-gradient(circle at bottom right,
-    rgba(212,176,111,0.08),
-    transparent 30%);
-
-    pointer-events:none;
+    animation:
+    shimmer 8s linear infinite;
 }
 
-/* TEXTO */
-
-.hero-left{
-
-    position:relative;
-
-    z-index:2;
-
-    animation:fadeUp 1.4s ease;
-}
-
-@keyframes fadeUp{
+@keyframes shimmer{
 
     from{
-        opacity:0;
-        transform:translateY(40px);
+        transform:translateX(-100%);
     }
 
     to{
-        opacity:1;
-        transform:translateY(0);
+        transform:translateX(100%);
     }
 }
+
+/* TEXTO */
 
 .tag{
 
     display:inline-block;
 
-    padding:10px 18px;
+    padding:12px 18px;
 
-    border-radius:30px;
+    border-radius:40px;
 
     background:
-    rgba(120,255,180,0.08);
+    rgba(255,255,255,0.08);
 
     border:
-    1px solid rgba(120,255,180,0.12);
+    1px solid rgba(255,255,255,0.08);
 
-    color:#9ff2c7;
+    color:#d7b27b;
 
-    font-size:0.85rem;
-
-    margin-bottom:30px;
+    margin-bottom:28px;
 
     letter-spacing:2px;
+
+    font-size:0.8rem;
 }
 
 .hero-left h1{
 
     font-family:'Cinzel', serif;
 
-    font-size:5.3rem;
+    font-size:5.4rem;
 
-    line-height:1.02;
+    line-height:1.05;
 
     margin-bottom:35px;
 
     color:white;
 
     text-shadow:
-    0 0 25px rgba(120,255,180,0.08);
+    0 0 25px rgba(255,255,255,0.08);
 }
 
 .hero-left p{
 
-    color:#d0ddd5;
+    color:#d6d6d6;
 
     line-height:1.9;
 
-    font-size:1.1rem;
+    font-size:1.08rem;
+
+    max-width:650px;
 
     margin-bottom:45px;
-
-    max-width:620px;
 }
 
 /* BOTONES */
@@ -435,14 +484,14 @@ nav a:hover::after{
     background:
     linear-gradient(
     135deg,
-    #78ffb4,
-    #2c7b58
+    #d4b06f,
+    #7fb9aa
     );
 
-    color:#04110c;
+    color:white;
 
     box-shadow:
-    0 15px 35px rgba(120,255,180,0.22);
+    0 15px 35px rgba(127,185,170,0.25);
 }
 
 .primary-btn:hover{
@@ -452,7 +501,7 @@ nav a:hover::after{
     scale(1.03);
 
     box-shadow:
-    0 20px 45px rgba(120,255,180,0.35);
+    0 20px 45px rgba(127,185,170,0.35);
 }
 
 .secondary-btn{
@@ -491,18 +540,22 @@ nav a:hover::after{
 .floating-card{
 
     background:
-    rgba(255,255,255,0.05);
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+    );
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:28px;
+    border-radius:30px;
 
     padding:35px;
 
     backdrop-filter:blur(12px);
 
-    transition:0.5s;
+    transition:0.4s;
 
     position:relative;
 
@@ -518,28 +571,28 @@ nav a:hover::after{
     inset:0;
 
     background:
-    linear-gradient(
-    135deg,
-    rgba(120,255,180,0.06),
-    transparent
+    radial-gradient(
+    circle at top left,
+    rgba(143,211,193,0.10),
+    transparent 45%
     );
 
     opacity:0;
 
-    transition:0.5s;
-}
-
-.floating-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:
-    rgba(120,255,180,0.28);
+    transition:0.4s;
 }
 
 .floating-card:hover::before{
 
     opacity:1;
+}
+
+.floating-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+    rgba(212,176,111,0.3);
 }
 
 .floating-card h3{
@@ -553,34 +606,32 @@ nav a:hover::after{
 
 .floating-card p{
 
-    color:#d2ddd5;
+    color:#d4d4d4;
 
     line-height:1.8;
 }
 
-/* SECCIONES */
+/* DESTINOS */
 
 .destinations,
 .promo-section,
 .booking-section{
 
-    padding:140px 7%;
+    padding:130px 7%;
 }
-
-/* TITULOS */
 
 .section-title{
 
     text-align:center;
 
-    margin-bottom:80px;
+    margin-bottom:70px;
 }
 
 .section-title span{
 
-    color:#9ff2c7;
+    color:#d4b06f;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
     font-size:0.85rem;
 }
@@ -589,12 +640,12 @@ nav a:hover::after{
 
     font-family:'Cinzel', serif;
 
-    font-size:4rem;
+    font-size:3.8rem;
 
-    margin-top:20px;
+    margin-top:18px;
 }
 
-/* DESTINOS */
+/* GRID */
 
 .destination-grid{
 
@@ -609,16 +660,20 @@ nav a:hover::after{
 .destination-card{
 
     background:
-    rgba(10,16,13,0.55);
+    linear-gradient(
+    135deg,
+    rgba(18,22,28,0.78),
+    rgba(22,26,32,0.58)
+    );
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:32px;
+    border-radius:30px;
 
     overflow:hidden;
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(12px);
 
     transition:0.5s;
 }
@@ -626,18 +681,16 @@ nav a:hover::after{
 .destination-card:hover{
 
     transform:
-    translateY(-12px);
+    translateY(-12px)
+    scale(1.01);
 
     border-color:
-    rgba(120,255,180,0.25);
-
-    box-shadow:
-    0 20px 60px rgba(120,255,180,0.10);
+    rgba(127,185,170,0.35);
 }
 
 .card-image{
 
-    height:340px;
+    height:320px;
 
     background-size:cover;
 
@@ -672,12 +725,12 @@ nav a:hover::after{
 
 .card-content p{
 
-    color:#d0ddd5;
+    color:#d0d0d0;
 
-    line-height:1.9;
+    line-height:1.8;
 }
 
-/* PROMO Y BOOKING */
+/* PROMO + BOOKING */
 
 .promo-card,
 .booking-card{
@@ -689,46 +742,23 @@ nav a:hover::after{
     text-align:center;
 
     background:
-    rgba(10,16,13,0.58);
+    linear-gradient(
+    135deg,
+    rgba(18,22,28,0.82),
+    rgba(24,30,36,0.62)
+    );
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:40px;
+    border-radius:42px;
 
-    padding:100px;
+    padding:90px;
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(16px);
 
-    position:relative;
-
-    overflow:hidden;
-}
-
-.promo-card::before,
-.booking-card::before{
-
-    content:'';
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle at top,
-    rgba(120,255,180,0.08),
-    transparent 40%);
-
-    pointer-events:none;
-}
-
-.promo-card span{
-
-    color:#9ff2c7;
-
-    letter-spacing:3px;
-
-    font-size:0.85rem;
+    box-shadow:
+    0 20px 70px rgba(0,0,0,0.25);
 }
 
 .promo-card h2,
@@ -736,7 +766,7 @@ nav a:hover::after{
 
     font-family:'Cinzel', serif;
 
-    font-size:4rem;
+    font-size:3.8rem;
 
     margin:25px 0;
 }
@@ -744,7 +774,7 @@ nav a:hover::after{
 .promo-card p,
 .booking-card p{
 
-    color:#d0ddd5;
+    color:#d0d0d0;
 
     line-height:1.9;
 
@@ -784,7 +814,7 @@ nav a:hover::after{
 
     .hero-left h1{
 
-        font-size:2.9rem;
+        font-size:2.8rem;
     }
 
     .hero-card,
@@ -798,6 +828,6 @@ nav a:hover::after{
     .promo-card h2,
     .booking-card h2{
 
-        font-size:2.5rem;
+        font-size:2.4rem;
     }
 }
