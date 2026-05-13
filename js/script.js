@@ -1,58 +1,74 @@
-const destinations = document.querySelectorAll(".destination");
+/* NAVBAR */
 
-destinations.forEach((card) => {
+const navbar =
+document.querySelector('.navbar');
 
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transform = "translateX(10px) scale(1.02)";
-        card.style.boxShadow = "0 10px 30px rgba(0,0,0,0.4)";
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "translateX(0px) scale(1)";
-        card.style.boxShadow = "none";
-
-    });
-
-});
-
-const buttons = document.querySelectorAll(
-".primary-btn, .secondary-btn, .book-btn"
-);
-
-buttons.forEach((button)=>{
-
-    button.addEventListener("mouseenter", ()=>{
-
-        button.style.transform = "translateY(-3px)";
-
-    });
-
-    button.addEventListener("mouseleave", ()=>{
-
-        button.style.transform = "translateY(0px)";
-
-    });
-
-});
-
-window.addEventListener("scroll", ()=>{
-
-    const navbar = document.querySelector(".navbar");
+window.addEventListener('scroll', () => {
 
     if(window.scrollY > 50){
 
-        navbar.style.background = "rgba(5,5,10,0.6)";
-        navbar.style.backdropFilter = "blur(12px)";
-        navbar.style.position = "sticky";
-        navbar.style.top = "0";
+        navbar.style.background =
+        'rgba(8,8,10,0.85)';
 
-    } else {
+    }else{
 
-        navbar.style.background = "transparent";
-
+        navbar.style.background =
+        'rgba(12,12,15,0.60)';
     }
+});
 
+/* ANIMACIONES */
+
+const cards =
+document.querySelectorAll('.card');
+
+const promoCards =
+document.querySelectorAll('.promo-card');
+
+const observer =
+new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = '1';
+
+            entry.target.style.transform =
+            'translateY(0)';
+        }
+    });
+
+},{
+    threshold:0.2
+});
+
+/* CARDS */
+
+cards.forEach((card) => {
+
+    card.style.opacity = '0';
+
+    card.style.transform =
+    'translateY(40px)';
+
+    card.style.transition =
+    'all 1s ease';
+
+    observer.observe(card);
+});
+
+/* PROMOS */
+
+promoCards.forEach((card) => {
+
+    card.style.opacity = '0';
+
+    card.style.transform =
+    'translateY(40px)';
+
+    card.style.transition =
+    'all 1s ease';
+
+    observer.observe(card);
 });
