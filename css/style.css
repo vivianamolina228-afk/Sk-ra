@@ -9,14 +9,10 @@ html{
 }
 
 body{
-
     font-family:'Inter', sans-serif;
-
-    background:#0b0c10;
-
-    color:white;
-
     overflow-x:hidden;
+    background:#0b0d10;
+    color:white;
 }
 
 /* VIDEO */
@@ -25,14 +21,15 @@ body{
 
     position:fixed;
 
-    inset:0;
+    top:0;
+    left:0;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    z-index:-3;
+    z-index:-5;
 }
 
 .video-overlay{
@@ -43,31 +40,62 @@ body{
 
     background:
     linear-gradient(
-    rgba(10,10,12,0.72),
-    rgba(10,10,12,0.88)
+    rgba(7,10,12,0.82),
+    rgba(10,12,14,0.92)
     );
 
-    z-index:-2;
+    z-index:-4;
 }
 
-/* MAIN */
+/* EFECTOS */
 
-.main-container{
+body::before{
 
-    width:100%;
+    content:'';
 
-    max-width:1600px;
+    position:fixed;
 
-    margin:auto;
+    inset:0;
 
-    padding:30px;
+    background:
+    radial-gradient(circle at top,
+    rgba(168,140,82,0.12),
+    transparent 40%);
+
+    animation:fog 10s ease-in-out infinite;
+
+    z-index:-3;
+}
+
+@keyframes fog{
+
+    0%{
+        transform:scale(1);
+        opacity:0.5;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:0.8;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:0.5;
+    }
 }
 
 /* NAVBAR */
 
 .navbar{
 
+    position:fixed;
+
+    top:0;
+
     width:100%;
+
+    padding:24px 7%;
 
     display:flex;
 
@@ -75,22 +103,16 @@ body{
 
     align-items:center;
 
-    padding:20px 40px;
-
     background:
-    rgba(15,15,18,0.55);
+    rgba(10,10,12,0.35);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(14px);
 
-    border:
+    border-bottom:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:25px;
-
-    margin-bottom:30px;
+    z-index:999;
 }
-
-/* BRAND */
 
 .brand{
 
@@ -101,12 +123,12 @@ body{
     gap:15px;
 }
 
-.brand img{
+.logo img{
 
-    width:60px;
     height:60px;
 
-    object-fit:contain;
+    filter:
+    drop-shadow(0 0 12px rgba(255,255,255,0.18));
 }
 
 .brand-text h2{
@@ -120,12 +142,10 @@ body{
 
 .brand-text p{
 
-    color:#c6c6c6;
+    color:#b9b9b9;
 
     font-size:0.85rem;
 }
-
-/* NAV */
 
 nav{
 
@@ -136,9 +156,9 @@ nav{
 
 nav a{
 
-    text-decoration:none;
+    color:#dadada;
 
-    color:#d7d7d7;
+    text-decoration:none;
 
     transition:0.3s;
 
@@ -152,20 +172,15 @@ nav a::after{
     position:absolute;
 
     left:0;
-    bottom:-6px;
+    bottom:-7px;
 
     width:0;
 
-    height:1px;
+    height:2px;
 
-    background:#d1a65f;
+    background:#c7a46c;
 
     transition:0.3s;
-}
-
-nav a:hover{
-
-    color:white;
 }
 
 nav a:hover::after{
@@ -173,64 +188,90 @@ nav a:hover::after{
     width:100%;
 }
 
+nav a:hover{
+
+    color:white;
+}
+
 /* HERO */
 
 .hero{
 
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:120px 7%;
+}
+
+.hero-card{
+
     width:100%;
 
-    min-height:700px;
+    max-width:1400px;
 
     display:grid;
 
     grid-template-columns:1.1fr 0.9fr;
 
-    gap:30px;
-
-    margin-bottom:80px;
-}
-
-/* LEFT */
-
-.hero-left{
+    gap:50px;
 
     background:
-    rgba(15,15,18,0.58);
-
-    backdrop-filter:blur(12px);
+    rgba(14,16,20,0.58);
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:35px;
+    border-radius:40px;
 
-    padding:80px;
+    overflow:hidden;
 
-    display:flex;
+    backdrop-filter:blur(18px);
 
-    flex-direction:column;
+    box-shadow:
+    0 20px 80px rgba(0,0,0,0.35);
 
-    justify-content:center;
+    padding:70px;
+}
+
+.hero-left{
+
+    animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .tag{
 
     display:inline-block;
 
-    width:fit-content;
-
     padding:10px 18px;
 
-    border-radius:50px;
+    border-radius:30px;
 
     background:
-    rgba(255,255,255,0.06);
+    rgba(255,255,255,0.08);
 
-    color:#d1a65f;
-
-    margin-bottom:30px;
+    color:#d7b27b;
 
     font-size:0.85rem;
+
+    margin-bottom:30px;
 }
 
 .hero-left h1{
@@ -241,45 +282,45 @@ nav a:hover::after{
 
     line-height:1.05;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
 .hero-left p{
 
-    color:#d2d2d2;
+    color:#cfcfcf;
 
     line-height:1.9;
 
-    font-size:1.08rem;
+    font-size:1.1rem;
 
     margin-bottom:45px;
 
-    max-width:600px;
+    max-width:620px;
 }
 
-/* BUTTONS */
+/* BOTONES */
 
 .hero-buttons{
 
     display:flex;
 
-    gap:20px;
-
-    flex-wrap:wrap;
+    gap:18px;
 }
 
 .primary-btn,
 .secondary-btn{
 
-    text-decoration:none;
+    display:inline-block;
 
     padding:16px 34px;
 
     border-radius:50px;
 
+    text-decoration:none;
+
     transition:0.4s;
 
-    font-weight:600;
+    font-weight:700;
 }
 
 .primary-btn{
@@ -287,146 +328,143 @@ nav a:hover::after{
     background:
     linear-gradient(
     135deg,
-    #d1a65f,
-    #8f6830
+    #d4b06f,
+    #8f6a32
     );
 
     color:white;
 
     box-shadow:
-    0 15px 35px rgba(209,166,95,0.22);
+    0 15px 35px rgba(212,176,111,0.25);
 }
 
 .primary-btn:hover{
 
     transform:
-    translateY(-5px);
+    translateY(-5px)
+    scale(1.03);
 }
 
 .secondary-btn{
 
-    background:
-    rgba(255,255,255,0.05);
-
     border:
-    1px solid rgba(255,255,255,0.10);
+    1px solid rgba(255,255,255,0.18);
 
     color:white;
+
+    background:
+    rgba(255,255,255,0.05);
 }
 
-/* RIGHT */
+.secondary-btn:hover{
+
+    background:white;
+
+    color:black;
+}
+
+/* FLOATING CARDS */
 
 .hero-right{
 
     display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:25px;
 }
 
-.hero-card-image{
-
-    width:100%;
-
-    border-radius:35px;
-
-    overflow:hidden;
-
-    position:relative;
+.floating-card{
 
     background:
-    linear-gradient(
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.55)
-    ),
-    url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-
-    background-position:center;
-
-    min-height:700px;
+    rgba(255,255,255,0.06);
 
     border:
     1px solid rgba(255,255,255,0.08);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.4s;
 }
 
-.hero-card-overlay{
+.floating-card:hover{
 
-    position:absolute;
+    transform:translateY(-8px);
 
-    bottom:0;
-
-    left:0;
-
-    padding:60px;
+    border-color:
+    rgba(212,176,111,0.3);
 }
 
-.hero-card-overlay h3{
+.floating-card h3{
 
     font-family:'Cinzel', serif;
 
-    font-size:3rem;
+    margin-bottom:15px;
 
-    margin-bottom:20px;
+    font-size:1.7rem;
 }
 
-.hero-card-overlay p{
+.floating-card p{
 
     color:#d0d0d0;
 
     line-height:1.8;
-
-    max-width:400px;
 }
 
-/* SECTIONS */
+/* DESTINOS */
 
 .destinations,
-.promotions,
-.booking{
+.promo-section,
+.booking-section{
 
-    margin-bottom:100px;
+    padding:120px 7%;
 }
-
-/* TITLES */
 
 .section-title{
 
-    margin-bottom:50px;
-
     text-align:center;
+
+    margin-bottom:70px;
+}
+
+.section-title span{
+
+    color:#d4b06f;
+
+    letter-spacing:3px;
+
+    font-size:0.85rem;
 }
 
 .section-title h2{
 
     font-family:'Cinzel', serif;
 
-    font-size:3rem;
+    font-size:3.5rem;
 
-    margin-bottom:15px;
+    margin-top:20px;
 }
 
-.section-title p{
-
-    color:#c7c7c7;
-}
-
-/* CARDS */
-
-.cards{
+.destination-grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
-    gap:30px;
+    gap:35px;
 }
 
-.card{
+.destination-card{
 
     background:
-    rgba(15,15,18,0.58);
-
-    backdrop-filter:blur(12px);
+    rgba(18,18,22,0.7);
 
     border:
     1px solid rgba(255,255,255,0.08);
@@ -435,21 +473,22 @@ nav a:hover::after{
 
     overflow:hidden;
 
-    transition:0.4s;
+    backdrop-filter:blur(10px);
+
+    transition:0.5s;
 }
 
-.card:hover{
+.destination-card:hover{
 
-    transform:
-    translateY(-10px);
+    transform:translateY(-12px);
 
     border-color:
-    rgba(209,166,95,0.28);
+    rgba(212,176,111,0.3);
 }
 
 .card-image{
 
-    height:280px;
+    height:320px;
 
     background-size:cover;
 
@@ -484,101 +523,86 @@ nav a:hover::after{
 
 .card-content p{
 
-    color:#cfcfcf;
+    color:#c9c9c9;
 
     line-height:1.8;
 }
 
 /* PROMO */
 
-.promo-box{
+.promo-card,
+.booking-card{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    text-align:center;
 
     background:
-    rgba(15,15,18,0.58);
-
-    backdrop-filter:blur(12px);
+    rgba(16,18,22,0.72);
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:35px;
+    border-radius:40px;
 
     padding:90px;
 
-    text-align:center;
+    backdrop-filter:blur(14px);
 }
 
-.promo-box h2{
+.promo-card span{
+
+    color:#d4b06f;
+
+    letter-spacing:3px;
+
+    font-size:0.85rem;
+}
+
+.promo-card h2,
+.booking-card h2{
 
     font-family:'Cinzel', serif;
 
-    font-size:3.5rem;
+    font-size:3.8rem;
 
-    margin-bottom:25px;
+    margin:25px 0;
 }
 
-.promo-box p{
+.promo-card p,
+.booking-card p{
 
-    color:#d0d0d0;
+    color:#cfcfcf;
 
     line-height:1.9;
 
     margin-bottom:40px;
 }
 
-/* BOOKING */
-
-.booking-box{
-
-    text-align:center;
-}
-
-.booking-box h2{
-
-    font-family:'Cinzel', serif;
-
-    font-size:3.5rem;
-
-    margin-bottom:25px;
-}
-
-.booking-box p{
-
-    color:#d0d0d0;
-
-    margin-bottom:40px;
-}
-
 /* RESPONSIVE */
 
-@media(max-width:1200px){
+@media(max-width:1100px){
 
-    .hero{
+    .hero-card{
 
         grid-template-columns:1fr;
     }
 
-    .hero-left,
-    .hero-card-image{
+    .hero-left h1{
 
-        min-height:auto;
+        font-size:4rem;
     }
 }
 
-@media(max-width:768px){
-
-    .main-container{
-
-        padding:15px;
-    }
+@media(max-width:700px){
 
     .navbar{
 
         flex-direction:column;
 
         gap:20px;
-
-        padding:25px;
     }
 
     nav{
@@ -588,35 +612,22 @@ nav a:hover::after{
         justify-content:center;
     }
 
-    .hero-left{
-
-        padding:45px;
-    }
-
     .hero-left h1{
 
-        font-size:3.2rem;
+        font-size:2.8rem;
     }
 
-    .hero-card-overlay{
+    .promo-card,
+    .booking-card,
+    .hero-card{
 
         padding:40px;
     }
 
-    .hero-card-overlay h3{
+    .section-title h2,
+    .promo-card h2,
+    .booking-card h2{
 
-        font-size:2rem;
-    }
-
-    .promo-box{
-
-        padding:50px 30px;
-    }
-
-    .promo-box h2,
-    .booking-box h2,
-    .section-title h2{
-
-        font-size:2.3rem;
+        font-size:2.4rem;
     }
 }
