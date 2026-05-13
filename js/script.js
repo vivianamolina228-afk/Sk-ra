@@ -1,5 +1,3 @@
-/* NAVBAR TRANSPARENCIA */
-
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -7,22 +5,22 @@ window.addEventListener('scroll', () => {
     if(window.scrollY > 50){
 
         navbar.style.background =
-        'rgba(10,10,12,0.78)';
+        'rgba(8,8,10,0.75)';
 
     }else{
 
         navbar.style.background =
-        'rgba(15,15,18,0.55)';
+        'rgba(10,10,12,0.35)';
     }
 });
 
-/* ANIMACION CARDS */
+/* ANIMACIONES */
 
-const cards =
-document.querySelectorAll('.card');
+const cards = document.querySelectorAll(
+'.destination-card, .floating-card, .promo-card, .booking-card'
+);
 
-const observer =
-new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
 
     entries.forEach((entry) => {
 
@@ -36,7 +34,7 @@ new IntersectionObserver((entries) => {
     });
 
 },{
-    threshold:0.2
+    threshold:0.15
 });
 
 cards.forEach((card) => {
@@ -44,7 +42,7 @@ cards.forEach((card) => {
     card.style.opacity = '0';
 
     card.style.transform =
-    'translateY(50px)';
+    'translateY(40px)';
 
     card.style.transition =
     'all 1s ease';
@@ -52,10 +50,9 @@ cards.forEach((card) => {
     observer.observe(card);
 });
 
-/* HERO PARALLAX */
+/* PARALLAX SUAVE */
 
-const hero =
-document.querySelector('.hero-card-image');
+const hero = document.querySelector('.hero');
 
 window.addEventListener('mousemove', (e) => {
 
