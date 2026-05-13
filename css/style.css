@@ -1,3 +1,5 @@
+/* css/style.css */
+
 *{
     margin:0;
     padding:0;
@@ -18,46 +20,76 @@ body{
 /* FONDO */
 
 body::before{
+
     content:'';
+
     position:fixed;
+
     inset:0;
 
     background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.92)),
     url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=2070&auto=format&fit=crop');
 
     background-size:cover;
     background-position:center;
+
     z-index:-3;
 }
 
 .overlay{
+
     position:fixed;
+
     inset:0;
 
     background:
     radial-gradient(circle at top,
-    rgba(120,120,120,0.08),
+    rgba(255,255,255,0.05),
     transparent 60%);
 
     z-index:-2;
 }
 
+body::after{
+
+    content:'';
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,255,255,0.03),
+    transparent 60%);
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
 /* NAVBAR */
 
 .navbar{
+
     width:100%;
-    padding:25px 8%;
+
+    padding:22px 8%;
 
     position:fixed;
+
     top:0;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
+
+    backdrop-filter:blur(12px);
 
     border-bottom:1px solid rgba(255,255,255,0.08);
 
@@ -65,81 +97,151 @@ body::before{
 }
 
 .logo{
-    font-family:'Cinzel', serif;
-    font-size:2rem;
-    font-weight:700;
 
-    letter-spacing:3px;
+    display:flex;
 
-    color:#f5f5f5;
+    align-items:center;
 }
 
-nav{
+.logo img{
+
+    height:55px;
+}
+
+.desktop-nav{
+
     display:flex;
+
     gap:35px;
 }
 
-nav a{
+.desktop-nav a{
+
     text-decoration:none;
+
     color:#d7d7d7;
 
-    font-size:0.95rem;
     transition:0.3s;
 }
 
-nav a:hover{
+.desktop-nav a:hover{
+
     color:white;
+}
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:2rem;
+
+    cursor:pointer;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:90px;
+
+    right:-100%;
+
+    width:260px;
+
+    background:rgba(0,0,0,0.95);
+
+    backdrop-filter:blur(15px);
+
+    padding:40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    transition:0.4s;
+
+    z-index:998;
+}
+
+.mobile-menu.active{
+
+    right:0;
+}
+
+.mobile-menu a{
+
+    color:white;
+
+    text-decoration:none;
 }
 
 /* HERO */
 
 .hero{
+
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
 
     padding:0 8%;
 }
 
 .hero-content{
-    max-width:700px;
+
+    max-width:720px;
 }
 
 .subtitle{
+
     color:#b0b0b0;
+
     letter-spacing:3px;
+
     margin-bottom:20px;
+
     text-transform:uppercase;
 }
 
 .hero h1{
+
     font-family:'Cinzel', serif;
 
     font-size:5rem;
+
     line-height:1.1;
 
     margin-bottom:30px;
+
+    transition:0.2s linear;
 }
 
 .description{
+
     color:#d0d0d0;
 
-    line-height:1.8;
+    line-height:1.9;
 
     font-size:1.1rem;
-
-    max-width:600px;
 }
 
 .hero-buttons{
+
     margin-top:40px;
+
     display:flex;
+
     gap:20px;
 }
 
 .primary-btn,
 .secondary-btn{
+
     padding:15px 30px;
 
     border-radius:50px;
@@ -150,22 +252,36 @@ nav a:hover{
 }
 
 .primary-btn{
+
     background:white;
+
     color:black;
-    font-weight:600;
+
+    font-weight:700;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.08);
 }
 
 .primary-btn:hover{
+
     transform:translateY(-4px);
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,0.18);
 }
 
 .secondary-btn{
+
     border:1px solid rgba(255,255,255,0.2);
+
     color:white;
 }
 
 .secondary-btn:hover{
+
     background:white;
+
     color:black;
 }
 
@@ -174,32 +290,42 @@ nav a:hover{
 .destinations,
 .experience,
 .contact{
+
     padding:120px 8%;
 }
 
 .section-title{
+
     margin-bottom:60px;
 }
 
 .section-title h2{
+
     font-family:'Cinzel', serif;
+
     font-size:3rem;
+
     margin-bottom:15px;
 }
 
 .section-title p{
+
     color:#cfcfcf;
 }
 
 /* CARDS */
 
 .cards{
+
     display:grid;
+
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
     gap:30px;
 }
 
 .card{
+
     background:rgba(255,255,255,0.04);
 
     border:1px solid rgba(255,255,255,0.08);
@@ -210,17 +336,36 @@ nav a:hover{
 
     backdrop-filter:blur(10px);
 
-    transition:0.4s;
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease,
+    border-color 0.4s ease;
+}
+
+.card.show{
+
+    opacity:1;
+
+    transform:translateY(0);
 }
 
 .card:hover{
+
     transform:translateY(-10px);
+
     border-color:rgba(255,255,255,0.2);
 }
 
 .card-image{
+
     height:250px;
+
     background-size:cover;
+
     background-position:center;
 }
 
@@ -245,23 +390,32 @@ nav a:hover{
 }
 
 .card-content{
+
     padding:30px;
 }
 
 .card-content h3{
+
     font-family:'Cinzel', serif;
+
     margin-bottom:15px;
+
     font-size:1.8rem;
 }
 
 .card-content p{
+
     color:#d0d0d0;
+
     line-height:1.7;
+
     margin-bottom:25px;
 }
 
 .card-content button{
+
     background:white;
+
     color:black;
 
     border:none;
@@ -272,18 +426,26 @@ nav a:hover{
 
     cursor:pointer;
 
-    font-weight:600;
+    font-weight:700;
 
     transition:0.3s;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.08);
 }
 
 .card-content button:hover{
+
     transform:translateY(-3px);
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,0.18);
 }
 
 /* EXPERIENCE */
 
 .experience-box{
+
     background:rgba(255,255,255,0.04);
 
     border:1px solid rgba(255,255,255,0.08);
@@ -296,45 +458,64 @@ nav a:hover{
 }
 
 .experience-box h2{
+
     font-family:'Cinzel', serif;
+
     font-size:3rem;
+
     margin-bottom:30px;
 }
 
 .experience-box p{
+
     color:#d0d0d0;
+
     max-width:800px;
+
     margin:auto;
+
     line-height:1.9;
 }
 
-/* CONTACTO */
+/* CONTACT */
 
 .contact-container{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:60px;
 }
 
 .contact-info h2{
+
     font-family:'Cinzel', serif;
+
     font-size:3rem;
+
     margin-bottom:20px;
 }
 
 .contact-info p{
+
     color:#cfcfcf;
+
     line-height:1.8;
 }
 
 .contact-form{
+
     display:flex;
+
     flex-direction:column;
+
     gap:20px;
 }
 
 .contact-form input,
 .contact-form textarea{
+
     background:rgba(255,255,255,0.05);
 
     border:1px solid rgba(255,255,255,0.08);
@@ -349,12 +530,16 @@ nav a:hover{
 }
 
 .contact-form textarea{
+
     min-height:160px;
+
     resize:none;
 }
 
 .contact-form button{
+
     background:white;
+
     color:black;
 
     border:none;
@@ -371,120 +556,79 @@ nav a:hover{
 }
 
 .contact-form button:hover{
+
     transform:translateY(-4px);
 }
 
 /* FOOTER */
 
 footer{
+
     padding:50px 8%;
+
     border-top:1px solid rgba(255,255,255,0.08);
+
     text-align:center;
 }
 
 footer h3{
+
     font-family:'Cinzel', serif;
+
     margin-bottom:15px;
 }
 
 footer p{
+
     color:#a9a9a9;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:950px){
+
+    .desktop-nav{
+
+        display:none;
+    }
+
+    .menu-toggle{
+
+        display:block;
+    }
 
     .hero h1{
-        font-size:3.5rem;
+
+        font-size:3.7rem;
     }
 
     .contact-container{
-        grid-template-columns:1fr;
-    }
 
-    nav{
-        display:none;
+        grid-template-columns:1fr;
     }
 }
 
 @media(max-width:600px){
 
     .hero h1{
+
         font-size:2.7rem;
     }
 
     .hero-buttons{
+
         flex-direction:column;
     }
 
     .experience-box{
+
         padding:40px;
     }
 
     .section-title h2,
     .experience-box h2,
     .contact-info h2{
+
         font-size:2.2rem;
     }
 }
-.card{
-    opacity:0;
-    transform:translateY(40px);
-}
-
-.card.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.card{
-    transition:
-    opacity 1s ease,
-    transform 1s ease,
-    border-color 0.4s ease;
-}
-
-/* GLOW PREMIUM */
-
-.primary-btn,
-.card-content button,
-.contact-form button{
-
-    box-shadow:
-    0 0 25px rgba(255,255,255,0.08);
-}
-
-.primary-btn:hover,
-.card-content button:hover,
-.contact-form button:hover{
-
-    box-shadow:
-    0 0 35px rgba(255,255,255,0.18);
-}
-
-/* EFECTO TITULO */
-
-.hero h1{
-    transition:transform 0.2s linear;
-}
-
-/* BRILLO SUAVE */
-
-body::after{
-    content:'';
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(255,255,255,0.03),
-    transparent 60%);
-
-    pointer-events:none;
-
-    z-index:-1;
-}
-
