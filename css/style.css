@@ -14,12 +14,12 @@ body{
 
     overflow-x:hidden;
 
-    background:#07110c;
+    background:#07110d;
 
-    color:white;
+    color:#f3f3f3;
 }
 
-/* VIDEO */
+/* VIDEO FONDO */
 
 .video-bg{
 
@@ -33,14 +33,15 @@ body{
 
     object-fit:cover;
 
-    z-index:-6;
+    z-index:-10;
 
     filter:
-    brightness(0.55)
-    saturate(1.1);
+    saturate(1.1)
+    brightness(0.6)
+    contrast(1.05);
 }
 
-/* OVERLAY PRINCIPAL */
+/* OVERLAY */
 
 .video-overlay{
 
@@ -50,14 +51,14 @@ body{
 
     background:
     linear-gradient(
-    rgba(5,12,8,0.72),
-    rgba(5,10,8,0.88)
+    rgba(5,12,10,0.78),
+    rgba(7,15,12,0.88)
     );
 
-    z-index:-5;
+    z-index:-9;
 }
 
-/* AURORA MISTICA */
+/* BRILLO BOTANICO */
 
 body::before{
 
@@ -69,37 +70,37 @@ body::before{
 
     background:
     radial-gradient(circle at top left,
-    rgba(90,255,180,0.12),
+    rgba(120,255,180,0.08),
     transparent 35%),
 
-    radial-gradient(circle at top right,
-    rgba(255,220,120,0.08),
-    transparent 30%),
+    radial-gradient(circle at bottom right,
+    rgba(212,176,111,0.10),
+    transparent 35%),
 
-    radial-gradient(circle at bottom,
-    rgba(60,120,255,0.08),
-    transparent 35%);
+    radial-gradient(circle at center,
+    rgba(255,255,255,0.03),
+    transparent 55%);
 
-    animation:aurora 12s ease-in-out infinite;
+    z-index:-8;
 
-    z-index:-4;
+    animation:forestGlow 10s ease-in-out infinite;
 }
 
-@keyframes aurora{
+@keyframes forestGlow{
 
     0%{
+        opacity:0.7;
         transform:scale(1);
-        opacity:0.6;
     }
 
     50%{
-        transform:scale(1.1);
         opacity:1;
+        transform:scale(1.04);
     }
 
     100%{
+        opacity:0.7;
         transform:scale(1);
-        opacity:0.6;
     }
 }
 
@@ -114,18 +115,18 @@ body::after{
     inset:0;
 
     background-image:
-    radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px);
+    radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
 
-    background-size:40px 40px;
+    background-size:90px 90px;
 
-    opacity:0.2;
+    opacity:0.12;
 
-    animation:particles 40s linear infinite;
+    animation:particlesMove 30s linear infinite;
 
-    z-index:-3;
+    z-index:-7;
 }
 
-@keyframes particles{
+@keyframes particlesMove{
 
     from{
         transform:translateY(0);
@@ -155,12 +156,12 @@ body::after{
     align-items:center;
 
     background:
-    rgba(6,10,8,0.35);
+    rgba(6,10,8,0.38);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(14px);
 
     border-bottom:
-    1px solid rgba(255,255,255,0.08);
+    1px solid rgba(255,255,255,0.06);
 
     z-index:999;
 }
@@ -181,7 +182,7 @@ body::after{
     height:62px;
 
     filter:
-    drop-shadow(0 0 12px rgba(123,255,190,0.18));
+    drop-shadow(0 0 12px rgba(120,255,180,0.22));
 }
 
 .brand-text h2{
@@ -192,12 +193,12 @@ body::after{
 
     letter-spacing:2px;
 
-    color:#f8f6ef;
+    color:#ffffff;
 }
 
 .brand-text p{
 
-    color:#b8c6b8;
+    color:#a8c7b3;
 
     font-size:0.85rem;
 
@@ -217,13 +218,13 @@ nav a{
 
     text-decoration:none;
 
-    color:#d6e6d6;
+    color:#d8e8dd;
 
-    transition:0.4s;
+    font-weight:500;
 
     position:relative;
 
-    font-weight:500;
+    transition:0.4s;
 }
 
 nav a::after{
@@ -233,7 +234,7 @@ nav a::after{
     position:absolute;
 
     left:0;
-    bottom:-8px;
+    bottom:-7px;
 
     width:0;
 
@@ -242,8 +243,8 @@ nav a::after{
     background:
     linear-gradient(
     90deg,
-    #6fffbc,
-    #d9b36d
+    #78ffb4,
+    #d4b06f
     );
 
     transition:0.4s;
@@ -287,29 +288,26 @@ nav a:hover::after{
     gap:50px;
 
     background:
-    linear-gradient(
-    rgba(12,18,14,0.72),
-    rgba(10,15,12,0.78)
-    );
+    rgba(8,14,11,0.45);
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:42px;
+    border-radius:40px;
 
     overflow:hidden;
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
     box-shadow:
-    0 30px 80px rgba(0,0,0,0.45);
+    0 30px 100px rgba(0,0,0,0.45);
 
-    padding:75px;
+    padding:80px;
 
     position:relative;
 }
 
-/* EFECTO BOTANICO */
+/* EFECTO MUSGO */
 
 .hero-card::before{
 
@@ -317,45 +315,36 @@ nav a:hover::after{
 
     position:absolute;
 
-    width:400px;
-    height:400px;
+    inset:0;
 
     background:
-    radial-gradient(circle,
-    rgba(111,255,188,0.12),
-    transparent 70%);
+    radial-gradient(circle at top left,
+    rgba(120,255,180,0.08),
+    transparent 30%),
 
-    top:-100px;
-    right:-100px;
+    radial-gradient(circle at bottom right,
+    rgba(212,176,111,0.08),
+    transparent 30%);
 
-    animation:glow 8s ease infinite;
+    pointer-events:none;
 }
 
-@keyframes glow{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-}
+/* TEXTO */
 
 .hero-left{
 
-    animation:fadeUp 1.3s ease;
+    position:relative;
+
+    z-index:2;
+
+    animation:fadeUp 1.4s ease;
 }
 
 @keyframes fadeUp{
 
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(40px);
     }
 
     to{
@@ -368,44 +357,44 @@ nav a:hover::after{
 
     display:inline-block;
 
-    padding:12px 20px;
+    padding:10px 18px;
 
-    border-radius:40px;
+    border-radius:30px;
 
     background:
-    rgba(255,255,255,0.06);
+    rgba(120,255,180,0.08);
 
-    color:#7fffc7;
+    border:
+    1px solid rgba(120,255,180,0.12);
+
+    color:#9ff2c7;
 
     font-size:0.85rem;
 
-    letter-spacing:2px;
-
     margin-bottom:30px;
 
-    border:
-    1px solid rgba(127,255,199,0.15);
+    letter-spacing:2px;
 }
 
 .hero-left h1{
 
     font-family:'Cinzel', serif;
 
-    font-size:5.4rem;
+    font-size:5.3rem;
 
-    line-height:1.05;
+    line-height:1.02;
 
     margin-bottom:35px;
 
-    color:#f8f6ef;
+    color:white;
 
     text-shadow:
-    0 0 25px rgba(255,255,255,0.08);
+    0 0 25px rgba(120,255,180,0.08);
 }
 
 .hero-left p{
 
-    color:#d3ddd3;
+    color:#d0ddd5;
 
     line-height:1.9;
 
@@ -413,7 +402,7 @@ nav a:hover::after{
 
     margin-bottom:45px;
 
-    max-width:650px;
+    max-width:620px;
 }
 
 /* BOTONES */
@@ -430,7 +419,7 @@ nav a:hover::after{
 
     display:inline-block;
 
-    padding:17px 36px;
+    padding:16px 34px;
 
     border-radius:50px;
 
@@ -446,14 +435,14 @@ nav a:hover::after{
     background:
     linear-gradient(
     135deg,
-    #74ffbf,
-    #2d8f68
+    #78ffb4,
+    #2c7b58
     );
 
-    color:white;
+    color:#04110c;
 
     box-shadow:
-    0 18px 40px rgba(116,255,191,0.25);
+    0 15px 35px rgba(120,255,180,0.22);
 }
 
 .primary-btn:hover{
@@ -463,13 +452,13 @@ nav a:hover::after{
     scale(1.03);
 
     box-shadow:
-    0 25px 50px rgba(116,255,191,0.35);
+    0 20px 45px rgba(120,255,180,0.35);
 }
 
 .secondary-btn{
 
     background:
-    rgba(255,255,255,0.05);
+    rgba(255,255,255,0.06);
 
     border:
     1px solid rgba(255,255,255,0.12);
@@ -507,7 +496,7 @@ nav a:hover::after{
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:30px;
+    border-radius:28px;
 
     padding:35px;
 
@@ -530,8 +519,9 @@ nav a:hover::after{
 
     background:
     linear-gradient(
-    transparent,
-    rgba(111,255,188,0.08)
+    135deg,
+    rgba(120,255,180,0.06),
+    transparent
     );
 
     opacity:0;
@@ -544,7 +534,7 @@ nav a:hover::after{
     transform:translateY(-10px);
 
     border-color:
-    rgba(111,255,188,0.25);
+    rgba(120,255,180,0.28);
 }
 
 .floating-card:hover::before{
@@ -559,13 +549,11 @@ nav a:hover::after{
     font-size:1.8rem;
 
     margin-bottom:15px;
-
-    color:#f7f5ef;
 }
 
 .floating-card p{
 
-    color:#c9d6c9;
+    color:#d2ddd5;
 
     line-height:1.8;
 }
@@ -576,7 +564,7 @@ nav a:hover::after{
 .promo-section,
 .booking-section{
 
-    padding:130px 7%;
+    padding:140px 7%;
 }
 
 /* TITULOS */
@@ -585,14 +573,14 @@ nav a:hover::after{
 
     text-align:center;
 
-    margin-bottom:70px;
+    margin-bottom:80px;
 }
 
 .section-title span{
 
-    color:#7fffc7;
+    color:#9ff2c7;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     font-size:0.85rem;
 }
@@ -601,7 +589,7 @@ nav a:hover::after{
 
     font-family:'Cinzel', serif;
 
-    font-size:3.8rem;
+    font-size:4rem;
 
     margin-top:20px;
 }
@@ -621,7 +609,7 @@ nav a:hover::after{
 .destination-card{
 
     background:
-    rgba(12,18,15,0.72);
+    rgba(10,16,13,0.55);
 
     border:
     1px solid rgba(255,255,255,0.08);
@@ -630,7 +618,7 @@ nav a:hover::after{
 
     overflow:hidden;
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(14px);
 
     transition:0.5s;
 }
@@ -641,7 +629,10 @@ nav a:hover::after{
     translateY(-12px);
 
     border-color:
-    rgba(111,255,188,0.3);
+    rgba(120,255,180,0.25);
+
+    box-shadow:
+    0 20px 60px rgba(120,255,180,0.10);
 }
 
 .card-image{
@@ -681,9 +672,9 @@ nav a:hover::after{
 
 .card-content p{
 
-    color:#c9d6c9;
+    color:#d0ddd5;
 
-    line-height:1.8;
+    line-height:1.9;
 }
 
 /* PROMO Y BOOKING */
@@ -691,26 +682,23 @@ nav a:hover::after{
 .promo-card,
 .booking-card{
 
-    max-width:1150px;
+    max-width:1100px;
 
     margin:auto;
 
     text-align:center;
 
     background:
-    linear-gradient(
-    rgba(10,18,14,0.72),
-    rgba(8,15,12,0.82)
-    );
+    rgba(10,16,13,0.58);
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:42px;
+    border-radius:40px;
 
-    padding:95px;
+    padding:100px;
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
     position:relative;
 
@@ -724,21 +712,19 @@ nav a:hover::after{
 
     position:absolute;
 
-    width:350px;
-    height:350px;
+    inset:0;
 
     background:
-    radial-gradient(circle,
-    rgba(111,255,188,0.12),
-    transparent 70%);
+    radial-gradient(circle at top,
+    rgba(120,255,180,0.08),
+    transparent 40%);
 
-    top:-120px;
-    right:-120px;
+    pointer-events:none;
 }
 
 .promo-card span{
 
-    color:#7fffc7;
+    color:#9ff2c7;
 
     letter-spacing:3px;
 
@@ -753,14 +739,12 @@ nav a:hover::after{
     font-size:4rem;
 
     margin:25px 0;
-
-    color:#f7f5ef;
 }
 
 .promo-card p,
 .booking-card p{
 
-    color:#d0dcd0;
+    color:#d0ddd5;
 
     line-height:1.9;
 
@@ -800,7 +784,7 @@ nav a:hover::after{
 
     .hero-left h1{
 
-        font-size:2.8rem;
+        font-size:2.9rem;
     }
 
     .hero-card,
