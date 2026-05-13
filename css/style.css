@@ -12,21 +12,11 @@ body{
 
     font-family:'Inter', sans-serif;
 
-    background:#d8d5cb;
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow-x:hidden;
-
-    padding:40px;
+    background:#0b0c10;
 
     color:white;
+
+    overflow-x:hidden;
 }
 
 /* VIDEO */
@@ -38,12 +28,11 @@ body{
     inset:0;
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
 
-    z-index:-5;
+    z-index:-3;
 }
 
 .video-overlay{
@@ -54,130 +43,54 @@ body{
 
     background:
     linear-gradient(
-    rgba(10,10,12,0.45),
-    rgba(10,10,12,0.70)
+    rgba(10,10,12,0.72),
+    rgba(10,10,12,0.88)
     );
 
-    z-index:-4;
+    z-index:-2;
 }
 
-/* MAGIC */
+/* MAIN */
 
-.magic-glow{
-
-    position:fixed;
-
-    width:700px;
-    height:700px;
-
-    background:
-    radial-gradient(
-    rgba(198,164,94,0.20),
-    transparent 70%
-    );
-
-    filter:blur(40px);
-
-    top:-150px;
-    left:-150px;
-
-    z-index:-3;
-
-    animation:floatGlow 10s ease-in-out infinite;
-}
-
-@keyframes floatGlow{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(40px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-}
-
-.hero-card{
+.main-container{
 
     width:100%;
 
-    max-width:1450px;
+    max-width:1600px;
 
-    min-height:860px;
+    margin:auto;
 
-    border-radius:35px;
-
-    overflow:hidden;
-
-    display:grid;
-
-    grid-template-columns:1.3fr 0.8fr;
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:
-    0 30px 80px rgba(0,0,0,0.35);
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-}
-
-.hero-left{
-
-    position:relative;
-
-    padding:40px 60px;
-
-    background:
-    linear-gradient(
-    rgba(15,18,20,0.45),
-    rgba(15,18,20,0.70)
-    ),
-    url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-}
-
-.hero-right{
-
-    background:
-    linear-gradient(
-    180deg,
-    #111318,
-    #090b10
-    );
-
-    padding:60px;
-
-    display:flex;
-
-    align-items:center;
+    padding:30px;
 }
 
 /* NAVBAR */
 
 .navbar{
 
+    width:100%;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    gap:20px;
+    padding:20px 40px;
+
+    background:
+    rgba(15,15,18,0.55);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    margin-bottom:30px;
 }
+
+/* BRAND */
 
 .brand{
 
@@ -185,49 +98,51 @@ body{
 
     align-items:center;
 
-    gap:12px;
+    gap:15px;
 }
 
 .brand img{
 
-    width:55px;
-
-    height:55px;
+    width:60px;
+    height:60px;
 
     object-fit:contain;
 }
 
-.brand span{
-
-    color:white;
+.brand-text h2{
 
     font-family:'Cinzel', serif;
 
-    font-size:1.6rem;
+    font-size:1.8rem;
 
     letter-spacing:2px;
 }
+
+.brand-text p{
+
+    color:#c6c6c6;
+
+    font-size:0.85rem;
+}
+
+/* NAV */
 
 nav{
 
     display:flex;
 
-    gap:30px;
-
-    flex-wrap:wrap;
+    gap:35px;
 }
 
 nav a{
 
     text-decoration:none;
 
-    color:#d8d8d8;
-
-    font-size:0.95rem;
-
-    position:relative;
+    color:#d7d7d7;
 
     transition:0.3s;
+
+    position:relative;
 }
 
 nav a::after{
@@ -243,7 +158,7 @@ nav a::after{
 
     height:1px;
 
-    background:#d6b06b;
+    background:#d1a65f;
 
     transition:0.3s;
 }
@@ -260,53 +175,86 @@ nav a:hover::after{
 
 /* HERO */
 
-.hero-content{
+.hero{
 
-    max-width:700px;
+    width:100%;
+
+    min-height:700px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr 0.9fr;
+
+    gap:30px;
+
+    margin-bottom:80px;
+}
+
+/* LEFT */
+
+.hero-left{
+
+    background:
+    rgba(15,15,18,0.58);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:35px;
+
+    padding:80px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
 }
 
 .tag{
 
     display:inline-block;
 
+    width:fit-content;
+
     padding:10px 18px;
 
     border-radius:50px;
 
     background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,0.06);
 
-    color:#e5d3a1;
-
-    font-size:0.85rem;
+    color:#d1a65f;
 
     margin-bottom:30px;
+
+    font-size:0.85rem;
 }
 
-.hero-content h1{
+.hero-left h1{
 
     font-family:'Cinzel', serif;
 
-    font-size:5.2rem;
+    font-size:5rem;
 
     line-height:1.05;
-
-    color:white;
 
     margin-bottom:30px;
 }
 
-.hero-content p{
+.hero-left p{
 
-    color:#d5d5d5;
+    color:#d2d2d2;
 
     line-height:1.9;
 
     font-size:1.08rem;
 
-    max-width:620px;
-
     margin-bottom:45px;
+
+    max-width:600px;
 }
 
 /* BUTTONS */
@@ -329,9 +277,9 @@ nav a:hover::after{
 
     border-radius:50px;
 
-    font-weight:600;
-
     transition:0.4s;
+
+    font-weight:600;
 }
 
 .primary-btn{
@@ -339,156 +287,336 @@ nav a:hover::after{
     background:
     linear-gradient(
     135deg,
-    #d6b06b,
-    #8f6930
+    #d1a65f,
+    #8f6830
     );
 
     color:white;
+
+    box-shadow:
+    0 15px 35px rgba(209,166,95,0.22);
+}
+
+.primary-btn:hover{
+
+    transform:
+    translateY(-5px);
 }
 
 .secondary-btn{
 
-    border:
-    1px solid rgba(255,255,255,0.15);
-
-    color:white;
-
     background:
     rgba(255,255,255,0.05);
-}
 
-/* DESTINATIONS */
+    border:
+    1px solid rgba(255,255,255,0.10);
 
-.destinations{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-}
-
-.destination{
-
-    padding:12px 20px;
-
-    border-radius:50px;
-
-    background:
-    rgba(255,255,255,0.06);
-
-    color:#e0e0e0;
-
-    font-size:0.9rem;
+    color:white;
 }
 
 /* RIGHT */
 
-.mini-title{
+.hero-right{
 
-    color:#d6b06b;
-
-    letter-spacing:3px;
-
-    margin-bottom:25px;
-
-    font-size:0.85rem;
+    display:flex;
 }
 
-.right-content h2{
+.hero-card-image{
+
+    width:100%;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.55)
+    ),
+    url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+
+    background-position:center;
+
+    min-height:700px;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.hero-card-overlay{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    padding:60px;
+}
+
+.hero-card-overlay h3{
 
     font-family:'Cinzel', serif;
 
-    color:white;
+    font-size:3rem;
 
-    font-size:3.5rem;
-
-    line-height:1.15;
-
-    margin-bottom:30px;
+    margin-bottom:20px;
 }
 
-.right-description{
+.hero-card-overlay p{
 
-    color:#b8b8b8;
+    color:#d0d0d0;
 
-    line-height:1.9;
+    line-height:1.8;
 
-    margin-bottom:45px;
+    max-width:400px;
 }
 
-/* PROMOS */
+/* SECTIONS */
 
-.promo-card{
+.destinations,
+.promotions,
+.booking{
+
+    margin-bottom:100px;
+}
+
+/* TITLES */
+
+.section-title{
+
+    margin-bottom:50px;
+
+    text-align:center;
+}
+
+.section-title h2{
+
+    font-family:'Cinzel', serif;
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+}
+
+.section-title p{
+
+    color:#c7c7c7;
+}
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+}
+
+.card{
 
     background:
-    rgba(255,255,255,0.05);
+    rgba(15,15,18,0.58);
+
+    backdrop-filter:blur(12px);
 
     border:
     1px solid rgba(255,255,255,0.08);
 
-    border-radius:22px;
+    border-radius:30px;
 
-    padding:24px;
+    overflow:hidden;
 
-    margin-bottom:18px;
+    transition:0.4s;
 }
 
-.promo-card span{
+.card:hover{
 
-    display:block;
+    transform:
+    translateY(-10px);
 
-    color:white;
-
-    font-weight:600;
-
-    margin-bottom:8px;
+    border-color:
+    rgba(209,166,95,0.28);
 }
 
-.promo-card small{
+.card-image{
 
-    color:#b5b5b5;
+    height:280px;
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+.norway{
+    background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
+}
+
+.ireland{
+    background-image:url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=2070&auto=format&fit=crop');
+}
+
+.scotland{
+    background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2070&auto=format&fit=crop');
+}
+
+.card-content{
+
+    padding:35px;
+}
+
+.card-content h3{
+
+    font-family:'Cinzel', serif;
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+}
+
+.card-content p{
+
+    color:#cfcfcf;
+
+    line-height:1.8;
+}
+
+/* PROMO */
+
+.promo-box{
+
+    background:
+    rgba(15,15,18,0.58);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:35px;
+
+    padding:90px;
+
+    text-align:center;
+}
+
+.promo-box h2{
+
+    font-family:'Cinzel', serif;
+
+    font-size:3.5rem;
+
+    margin-bottom:25px;
+}
+
+.promo-box p{
+
+    color:#d0d0d0;
+
+    line-height:1.9;
+
+    margin-bottom:40px;
+}
+
+/* BOOKING */
+
+.booking-box{
+
+    text-align:center;
+}
+
+.booking-box h2{
+
+    font-family:'Cinzel', serif;
+
+    font-size:3.5rem;
+
+    margin-bottom:25px;
+}
+
+.booking-box p{
+
+    color:#d0d0d0;
+
+    margin-bottom:40px;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:1200px){
 
-    .hero-card{
+    .hero{
 
         grid-template-columns:1fr;
+    }
+
+    .hero-left,
+    .hero-card-image{
+
+        min-height:auto;
     }
 }
 
 @media(max-width:768px){
 
-    body{
-        padding:20px;
-    }
+    .main-container{
 
-    .hero-left,
-    .hero-right{
-        padding:35px;
+        padding:15px;
     }
 
     .navbar{
+
         flex-direction:column;
-        align-items:flex-start;
+
+        gap:20px;
+
+        padding:25px;
     }
 
     nav{
-        gap:15px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
     }
 
-    .hero-content h1{
+    .hero-left{
+
+        padding:45px;
+    }
+
+    .hero-left h1{
+
         font-size:3.2rem;
     }
 
-    .right-content h2{
-        font-size:2.4rem;
+    .hero-card-overlay{
+
+        padding:40px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
+    .hero-card-overlay h3{
+
+        font-size:2rem;
+    }
+
+    .promo-box{
+
+        padding:50px 30px;
+    }
+
+    .promo-box h2,
+    .booking-box h2,
+    .section-title h2{
+
+        font-size:2.3rem;
     }
 }
