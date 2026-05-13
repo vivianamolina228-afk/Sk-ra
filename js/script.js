@@ -10,36 +10,39 @@ window.addEventListener('scroll', () => {
     }else{
 
         navbar.style.background =
-        'rgba(255,255,255,0.75)';
+        'rgba(255,255,255,0.78)';
     }
 });
 
-/* MENU MOBILE */
+/* ANIMACION TARJETAS */
 
-const menuToggle =
-document.getElementById('menuToggle');
+const cards = document.querySelectorAll('.card');
 
-const mobileMenu =
-document.getElementById('mobileMenu');
+const observer = new IntersectionObserver((entries) => {
 
-menuToggle.addEventListener('click', () => {
+    entries.forEach((entry) => {
 
-    mobileMenu.classList.toggle('active');
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = '1';
+
+            entry.target.style.transform =
+            'translateY(0)';
+        }
+    });
+
+},{
+    threshold:0.2
 });
 
-/* ANIMACION HERO */
+cards.forEach((card) => {
 
-const heroTitle =
-document.querySelector('.hero h1');
+    card.style.opacity = '0';
 
-window.addEventListener('mousemove', (e) => {
+    card.style.transform = 'translateY(40px)';
 
-    let x =
-    (window.innerWidth / 2 - e.pageX) / 50;
+    card.style.transition =
+    'all 1s ease';
 
-    let y =
-    (window.innerHeight / 2 - e.pageY) / 50;
-
-    heroTitle.style.transform =
-    `translate(${x}px, ${y}px)`;
+    observer.observe(card);
 });
