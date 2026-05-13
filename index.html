@@ -1,174 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skýra Travel</title>
 
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Skýra | Dragonic Journeys</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="description"
+    content="Agencia de viajes premium inspirada en dragones europeos y paisajes nórdicos.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-  <div class="background-overlay"></div>
+    <!-- VIDEO -->
 
-  <header class="navbar">
+    <video autoplay muted loop playsinline class="video-bg">
 
-    <div class="logo-container">
+        <source
+        src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-1560083433108?download=1080p"
+        type="video/mp4">
 
-      <div class="dragon-logo">
-        <span>𓆩⚔𓆪</span>
-      </div>
+    </video>
 
-      <div>
-        <h1 class="logo-text">Skýra</h1>
-        <p class="logo-sub">Northern Dragon Voyages</p>
-      </div>
+    <div class="video-overlay"></div>
 
-    </div>
+    <!-- MAIN -->
 
-    <nav>
+    <main class="main-container">
 
-      <a href="#destinations">Destinations</a>
-      <a href="#experience">Experiences</a>
-      <a href="#about">About</a>
-      <a href="#book">Reserve</a>
+        <!-- NAVBAR -->
 
-    </nav>
+        <header class="navbar">
 
-  </header>
+            <div class="brand">
 
-  <main class="hero">
+                <img src="images/logo.png" alt="Skýra Logo">
 
-    <div class="hero-left">
+                <div class="brand-text">
 
-      <div class="tag">
-        Inspired by European Dragon Legends
-      </div>
+                    <h2>Skýra</h2>
 
-      <h2>
-        Discover the Mythical North.
-      </h2>
+                    <p>
+                        Dragonic Nordic Journeys
+                    </p>
 
-      <p class="hero-description">
+                </div>
 
-        Luxury journeys through Norway, Ireland,
-        Scotland, Denmark and England inspired by
-        ancient dragon lore, cinematic landscapes
-        and mystical kingdoms.
+            </div>
 
-      </p>
+            <nav>
 
-      <div class="buttons">
+                <a href="#inicio">Inicio</a>
+                <a href="#destinos">Destinos</a>
+                <a href="#promos">Promociones</a>
+                <a href="#reservar">Reservar</a>
 
-        <a href="#book" class="primary-btn">
-          Reserve Now
-        </a>
+            </nav>
 
-        <a href="#destinations" class="secondary-btn">
-          Explore Destinations
-        </a>
+        </header>
 
-      </div>
+        <!-- HERO -->
 
-    </div>
+        <section class="hero" id="inicio">
 
-    <div class="hero-right">
+            <div class="hero-left">
 
-      <div class="glass-card">
+                <div class="tag">
+                    EXPERIENCIAS PREMIUM
+                </div>
 
-        <h3>Featured Realms</h3>
+                <h1>
+                    Explora reinos
+                    ocultos entre
+                    dragones y niebla.
+                </h1>
 
-        <div class="destination-list">
+                <p>
+                    Descubre Noruega, Escocia, Irlanda,
+                    Inglaterra y Dinamarca con experiencias
+                    inspiradas en fantasía medieval y leyendas europeas.
+                </p>
 
-          <div class="destination">
-            <span>🇳🇴 Norway</span>
-            <small>Fjords & Dragon Mountains</small>
-          </div>
+                <div class="hero-buttons">
 
-          <div class="destination">
-            <span>🏴 Scotland</span>
-            <small>Castles & Highland Legends</small>
-          </div>
+                    <a href="#reservar" class="primary-btn">
+                        Reservar Ahora
+                    </a>
 
-          <div class="destination">
-            <span>🇮🇪 Ireland</span>
-            <small>Mystic Forest Routes</small>
-          </div>
+                    <a href="#destinos" class="secondary-btn">
+                        Ver Destinos
+                    </a>
 
-          <div class="destination">
-            <span>🇩🇰 Denmark</span>
-            <small>Nordic Royal Escapes</small>
-          </div>
+                </div>
 
-          <div class="destination">
-            <span>🏴 England</span>
-            <small>Ancient Thrones & History</small>
-          </div>
+            </div>
 
-        </div>
+            <div class="hero-right">
 
-      </div>
+                <div class="hero-card-image">
 
-    </div>
+                    <div class="hero-card-overlay">
 
-  </main>
+                        <h3>
+                            Work fast.
+                            Live slow.
+                        </h3>
 
-  <section class="promo-section" id="experience">
+                        <p>
+                            Viajes cinematográficos premium
+                            inspirados en dragones europeos.
+                        </p>
 
-    <div class="promo-card">
+                    </div>
 
-      <h3>Dragon Inspired Experiences</h3>
+                </div>
 
-      <p>
-        Hidden castles, northern lights,
-        cinematic landscapes and luxury
-        adventures designed for travelers
-        seeking fantasy-like destinations.
-      </p>
+            </div>
 
-    </div>
+        </section>
 
-    <div class="promo-card">
+        <!-- DESTINOS -->
 
-      <h3>Luxury Northern Routes</h3>
+        <section class="destinations" id="destinos">
 
-      <p>
-        Premium travel packages crafted
-        for explorers who want elegance,
-        mythology and unforgettable scenery.
-      </p>
+            <div class="section-title">
 
-    </div>
+                <h2>
+                    Destinos Destacados
+                </h2>
 
-  </section>
+                <p>
+                    Diseñados para viajeros que buscan experiencias legendarias.
+                </p>
 
-  <section class="bottom-banner" id="book">
+            </div>
 
-    <div>
+            <div class="cards">
 
-      <h2>
-        Begin Your Legendary Journey
-      </h2>
+                <div class="card">
 
-      <p>
-        Travel beyond ordinary destinations.
-      </p>
+                    <div class="card-image norway"></div>
 
-    </div>
+                    <div class="card-content">
 
-    <button class="book-btn">
-      Reserve Now
-    </button>
+                        <h3>Noruega</h3>
 
-  </section>
+                        <p>
+                            Fiordos, auroras boreales y montañas vikingas.
+                        </p>
 
-<script src="script.js"></script>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-image ireland"></div>
+
+                    <div class="card-content">
+
+                        <h3>Irlanda</h3>
+
+                        <p>
+                            Castillos medievales y acantilados místicos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-image scotland"></div>
+
+                    <div class="card-content">
+
+                        <h3>Escocia</h3>
+
+                        <p>
+                            Highlands cubiertas de niebla y leyendas antiguas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PROMOS -->
+
+        <section class="promotions" id="promos">
+
+            <div class="promo-box">
+
+                <h2>
+                    Promoción Dragon Route
+                </h2>
+
+                <p>
+                    Viajes exclusivos por Escocia, Noruega e Irlanda
+                    con experiencias premium inspiradas en fantasía medieval.
+                </p>
+
+                <a href="#reservar" class="primary-btn">
+                    Ver Promoción
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- RESERVAS -->
+
+        <section class="booking" id="reservar">
+
+            <div class="booking-box">
+
+                <h2>
+                    Comienza tu aventura
+                </h2>
+
+                <p>
+                    Reserva hoy mismo tu experiencia Skýra.
+                </p>
+
+                <a href="https://wa.me/56912345678"
+                target="_blank"
+                class="primary-btn">
+
+                    Reservar Ahora
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
