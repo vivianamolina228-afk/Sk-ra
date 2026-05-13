@@ -9,79 +9,26 @@ html{
 }
 
 body{
-
     font-family:'Inter', sans-serif;
-
     background:#f5f7fb;
-
     color:#1f2937;
-
     overflow-x:hidden;
-}
-
-/* HERO FONDO */
-
-.hero{
-
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:0 8%;
-
-    background:
-    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-
-    background-position:center;
-}
-
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(245,247,251,0.75),
-    rgba(245,247,251,0.88)
-    );
-}
-
-.hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:700px;
 }
 
 /* NAVBAR */
 
 .navbar{
-
     position:fixed;
-
     top:0;
-
     width:100%;
 
     padding:20px 8%;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    background:rgba(255,255,255,0.78);
+    background:rgba(255,255,255,0.82);
 
     backdrop-filter:blur(12px);
 
@@ -91,73 +38,81 @@ body{
 }
 
 .brand{
-
     display:flex;
-
     align-items:center;
-
     gap:15px;
 }
 
 .logo img{
-
     height:55px;
+    width:auto;
+    display:block;
 }
 
 .brand-text h2{
-
     font-family:'Cinzel', serif;
-
     font-size:1.7rem;
-
     color:#111827;
 }
 
 .brand-text p{
-
     font-size:0.85rem;
-
     color:#64748b;
 }
 
+/* MENU */
+
 .desktop-nav{
-
     display:flex;
-
     gap:35px;
 }
 
 .desktop-nav a{
-
     text-decoration:none;
-
     color:#1e293b;
-
     font-weight:500;
-
     transition:0.3s;
 }
 
 .desktop-nav a:hover{
-
     color:#000;
 }
 
 /* HERO */
 
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 8%;
+
+    background-image:
+    linear-gradient(
+    rgba(245,247,251,0.72),
+    rgba(245,247,251,0.88)
+    ),
+    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
 .subtitle{
-
     color:#64748b;
-
     letter-spacing:3px;
-
     margin-bottom:20px;
-
     font-size:0.9rem;
 }
 
 .hero h1{
-
     font-family:'Cinzel', serif;
 
     font-size:5rem;
@@ -170,15 +125,10 @@ body{
 }
 
 .description{
-
     font-size:1.1rem;
-
     line-height:1.9;
-
     color:#475569;
-
     margin-bottom:40px;
-
     max-width:600px;
 }
 
@@ -186,7 +136,6 @@ body{
 
 .primary-btn,
 .secondary-btn{
-
     display:inline-block;
 
     padding:16px 32px;
@@ -201,9 +150,7 @@ body{
 }
 
 .primary-btn{
-
     background:#1e293b;
-
     color:white;
 
     box-shadow:
@@ -211,16 +158,12 @@ body{
 }
 
 .primary-btn:hover{
-
     transform:translateY(-4px);
 }
 
 .secondary-btn{
-
     background:white;
-
     color:#1e293b;
-
     border:1px solid rgba(0,0,0,0.08);
 }
 
@@ -229,44 +172,38 @@ body{
 .destinations,
 .promotions,
 .booking{
-
     padding:120px 8%;
 }
 
+/* TITULOS */
+
 .section-title{
-
     margin-bottom:60px;
-
     text-align:center;
 }
 
 .section-title h2{
-
     font-family:'Cinzel', serif;
-
     font-size:3rem;
-
     margin-bottom:15px;
 }
 
 .section-title p{
-
     color:#64748b;
 }
 
 /* CARDS */
 
 .cards{
-
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
 
     gap:30px;
 }
 
 .card{
-
     background:white;
 
     border-radius:25px;
@@ -280,16 +217,13 @@ body{
 }
 
 .card:hover{
-
     transform:translateY(-10px);
 }
 
 .card-image{
-
     height:260px;
 
     background-size:cover;
-
     background-position:center;
 }
 
@@ -306,30 +240,23 @@ body{
 }
 
 .card-content{
-
     padding:30px;
 }
 
 .card-content h3{
-
     font-family:'Cinzel', serif;
-
     margin-bottom:15px;
-
     font-size:1.8rem;
 }
 
 .card-content p{
-
     color:#64748b;
-
     line-height:1.7;
 }
 
 /* PROMOCIONES */
 
 .promo-box{
-
     background:white;
 
     padding:80px;
@@ -343,43 +270,31 @@ body{
 }
 
 .promo-box h2{
-
     font-family:'Cinzel', serif;
-
     font-size:3rem;
-
     margin-bottom:25px;
 }
 
 .promo-box p{
-
     color:#64748b;
-
     line-height:1.8;
-
     margin-bottom:35px;
 }
 
 /* BOOKING */
 
 .booking-box{
-
     text-align:center;
 }
 
 .booking-box h2{
-
     font-family:'Cinzel', serif;
-
     font-size:3rem;
-
     margin-bottom:25px;
 }
 
 .booking-box p{
-
     color:#64748b;
-
     margin-bottom:35px;
 }
 
@@ -388,51 +303,38 @@ body{
 @media(max-width:900px){
 
     .navbar{
-
         flex-direction:column;
-
         gap:20px;
     }
 
     .desktop-nav{
-
         gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
     .hero h1{
-
         font-size:3.5rem;
     }
 }
 
 @media(max-width:600px){
 
-    .desktop-nav{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-    }
-
     .hero{
-
         text-align:center;
     }
 
     .hero h1{
-
         font-size:2.6rem;
     }
 
     .section-title h2,
     .promo-box h2,
     .booking-box h2{
-
         font-size:2.2rem;
     }
 
     .promo-box{
-
         padding:40px;
     }
 }
