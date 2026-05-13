@@ -3,26 +3,24 @@
 
 <head>
 
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Skýra | Viajes Legendarios</title>
 
   <meta name="description"
   content="Agencia de viajes premium inspirada en leyendas nórdicas y dragones europeos.">
 
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
-  <div class="overlay"></div>
 
   <!-- NAVBAR -->
 
@@ -39,7 +37,7 @@
         <h2>Skýra</h2>
 
         <p>
-          Viajes legendarios por Europa
+          Viajes inspirados en leyendas nórdicas
         </p>
 
       </div>
@@ -51,69 +49,38 @@
       <a href="#inicio">Inicio</a>
       <a href="#destinos">Destinos</a>
       <a href="#promociones">Promociones</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#reservar">Reservar</a>
 
     </nav>
 
-    <div class="menu-toggle" id="menuToggle">
-      ☰
-    </div>
-
   </header>
-
-  <!-- MOBILE MENU -->
-
-  <div class="mobile-menu" id="mobileMenu">
-
-    <a href="#inicio">Inicio</a>
-    <a href="#destinos">Destinos</a>
-    <a href="#promociones">Promociones</a>
-    <a href="#contacto">Contacto</a>
-
-  </div>
 
   <!-- HERO -->
 
   <section class="hero" id="inicio">
 
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
 
       <p class="subtitle">
-        EXPERIENCIAS CINEMATOGRÁFICAS
+        EXPERIENCIAS PREMIUM
       </p>
 
       <h1>
-        Descubre Europa<br>
-        como una leyenda.
+        Explora el norte
+        de Europa como una leyenda.
       </h1>
 
       <p class="description">
-        Explora Noruega, Irlanda, Escocia, Inglaterra y Dinamarca
-        con experiencias premium inspiradas en dragones,
-        castillos medievales y paisajes nórdicos.
+        Descubre Noruega, Irlanda, Escocia,
+        Inglaterra y Dinamarca con experiencias
+        inspiradas en dragones, castillos y mitología europea.
       </p>
 
-      <div class="hero-buttons">
-
-        <a href="#destinos" class="primary-btn">
-          Ver Destinos
-        </a>
-
-        <a href="https://wa.me/56912345678"
-        target="_blank"
-        class="secondary-btn">
-          Reservar Ahora
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="hero-image">
-
-      <img
-      src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=2070&auto=format&fit=crop"
-      alt="Viajes Skýra">
+      <a href="#reservar" class="primary-btn">
+        Reservar Ahora
+      </a>
 
     </div>
 
@@ -125,10 +92,12 @@
 
     <div class="section-title">
 
-      <h2>Destinos Destacados</h2>
+      <h2>
+        Destinos Destacados
+      </h2>
 
       <p>
-        Aventuras inspiradas en mitología europea y lujo nórdico.
+        Aventuras diseñadas para viajeros que buscan experiencias épicas.
       </p>
 
     </div>
@@ -144,10 +113,8 @@
           <h3>Noruega</h3>
 
           <p>
-            Fiordos, auroras boreales y cultura vikinga.
+            Fiordos, auroras boreales y paisajes vikingos.
           </p>
-
-          <button>Explorar</button>
 
         </div>
 
@@ -162,10 +129,8 @@
           <h3>Irlanda</h3>
 
           <p>
-            Castillos medievales y paisajes verdes épicos.
+            Castillos medievales y acantilados legendarios.
           </p>
-
-          <button>Explorar</button>
 
         </div>
 
@@ -180,10 +145,8 @@
           <h3>Escocia</h3>
 
           <p>
-            Highlands cubiertas de niebla y fortalezas antiguas.
+            Highlands cubiertas de niebla y fortalezas históricas.
           </p>
-
-          <button>Explorar</button>
 
         </div>
 
@@ -195,122 +158,53 @@
 
   <!-- PROMOCIONES -->
 
-  <section class="promo-section" id="promociones">
+  <section class="promotions" id="promociones">
 
     <div class="promo-box">
 
       <h2>
-        Oferta Especial de Temporada
+        Promoción Especial de Temporada
       </h2>
 
       <p>
-        Reserva durante este mes y obtén descuentos exclusivos
-        en experiencias premium por Europa del Norte.
+        Reserva hoy y obtén experiencias exclusivas
+        en rutas nórdicas premium.
       </p>
 
-      <a href="https://wa.me/56912345678"
-      target="_blank"
-      class="promo-btn">
-
-        Reservar Ahora
-
+      <a href="#reservar" class="secondary-btn">
+        Ver Promoción
       </a>
 
     </div>
 
-    <div class="promo-grid">
+  </section>
 
-      <div class="mini-promo">
+  <!-- RESERVAR -->
 
-        <h3>
-          Tours Premium
-        </h3>
+  <section class="booking" id="reservar">
 
-        <p>
-          Experiencias privadas y rutas cinematográficas.
-        </p>
+    <div class="booking-box">
 
-      </div>
+      <h2>
+        ¿Listo para comenzar tu aventura?
+      </h2>
 
-      <div class="mini-promo">
+      <p>
+        Reserva tu experiencia Skýra ahora mismo.
+      </p>
 
-        <h3>
-          Hoteles Boutique
-        </h3>
-
-        <p>
-          Hospedajes inspirados en lujo escandinavo.
-        </p>
-
-      </div>
-
-      <div class="mini-promo">
-
-        <h3>
-          Guías Especializados
-        </h3>
-
-        <p>
-          Expertos en historia y cultura europea.
-        </p>
-
-      </div>
+      <a href="https://wa.me/56912345678"
+      target="_blank"
+      class="primary-btn">
+        Reservar Ahora
+      </a>
 
     </div>
 
   </section>
-
-  <!-- CONTACTO -->
-
-  <section class="contact" id="contacto">
-
-    <div class="contact-container">
-
-      <div class="contact-info">
-
-        <h2>
-          Comienza tu aventura
-        </h2>
-
-        <p>
-          Recibe un itinerario personalizado para tu próximo viaje.
-        </p>
-
-      </div>
-
-      <form class="contact-form">
-
-        <input type="text" placeholder="Nombre">
-
-        <input type="email" placeholder="Correo">
-
-        <textarea placeholder="¿Qué destino deseas explorar?"></textarea>
-
-        <button type="submit">
-
-          Enviar Solicitud
-
-        </button>
-
-      </form>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <h3>Skýra</h3>
-
-    <p>
-      Viajes legendarios por Europa.
-    </p>
-
-  </footer>
 
   <script src="js/script.js"></script>
 
 </body>
+
 </html>
