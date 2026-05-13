@@ -10,24 +10,44 @@ html{
 
 body{
     font-family:'Inter', sans-serif;
+    background:#0f0f10;
+    color:#f5f5f5;
+    overflow-x:hidden;
+}
+
+/* VIDEO FONDO */
+
+.video-background{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-5;
+}
+
+.video-overlay{
+
+    position:fixed;
+
+    inset:0;
 
     background:
     linear-gradient(
-    135deg,
-    #eef4ff 0%,
-    #f8f4ff 25%,
-    #fff7f0 50%,
-    #eefcf9 100%
+    rgba(8,8,10,0.72),
+    rgba(12,12,14,0.88)
     );
 
-    color:#1f2937;
-
-    overflow-x:hidden;
-
-    position:relative;
+    z-index:-4;
 }
 
-/* EFECTOS DE FONDO DRAGON CORE */
+/* EFECTO NIEBLA */
 
 body::before{
 
@@ -38,50 +58,31 @@ body::before{
     inset:0;
 
     background:
-    radial-gradient(circle at top left,
-    rgba(120,170,255,0.25),
-    transparent 30%),
+    radial-gradient(circle at top,
+    rgba(255,255,255,0.05),
+    transparent 40%);
 
-    radial-gradient(circle at top right,
-    rgba(186,140,255,0.22),
-    transparent 35%),
+    z-index:-3;
 
-    radial-gradient(circle at bottom left,
-    rgba(255,170,120,0.20),
-    transparent 35%),
-
-    radial-gradient(circle at bottom right,
-    rgba(120,255,220,0.18),
-    transparent 35%);
-
-    pointer-events:none;
-
-    z-index:-2;
+    animation:fog 12s ease-in-out infinite;
 }
 
-/* TEXTURA ESCAMAS */
+@keyframes fog{
 
-body::after{
+    0%{
+        opacity:0.4;
+        transform:scale(1);
+    }
 
-    content:'';
+    50%{
+        opacity:0.7;
+        transform:scale(1.08);
+    }
 
-    position:fixed;
-
-    inset:0;
-
-    background-image:
-    radial-gradient(
-    rgba(255,255,255,0.25) 1px,
-    transparent 1px
-    );
-
-    background-size:24px 24px;
-
-    opacity:0.18;
-
-    pointer-events:none;
-
-    z-index:-1;
+    100%{
+        opacity:0.4;
+        transform:scale(1);
+    }
 }
 
 /* NAVBAR */
@@ -94,7 +95,7 @@ body::after{
 
     width:100%;
 
-    padding:20px 8%;
+    padding:22px 8%;
 
     display:flex;
 
@@ -103,17 +104,14 @@ body::after{
     align-items:center;
 
     background:
-    rgba(255,255,255,0.45);
+    rgba(10,10,12,0.55);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(14px);
 
     border-bottom:
-    1px solid rgba(255,255,255,0.35);
+    1px solid rgba(255,255,255,0.08);
 
     z-index:999;
-
-    box-shadow:
-    0 10px 40px rgba(120,120,255,0.08);
 }
 
 /* BRAND */
@@ -132,8 +130,7 @@ body::after{
     height:60px;
 
     filter:
-    drop-shadow(0 0 15px rgba(120,170,255,0.35))
-    drop-shadow(0 0 25px rgba(186,140,255,0.25));
+    drop-shadow(0 0 10px rgba(255,255,255,0.18));
 }
 
 .brand-text h2{
@@ -142,16 +139,18 @@ body::after{
 
     font-size:1.9rem;
 
-    color:#172033;
+    color:#f8f8f8;
 
-    letter-spacing:1px;
+    letter-spacing:2px;
 }
 
 .brand-text p{
 
-    color:#64748b;
+    color:#b8b8b8;
 
-    font-size:0.9rem;
+    font-size:0.85rem;
+
+    letter-spacing:1px;
 }
 
 /* MENU */
@@ -167,9 +166,9 @@ body::after{
 
     text-decoration:none;
 
-    color:#243047;
+    color:#d8d8d8;
 
-    font-weight:600;
+    font-weight:500;
 
     transition:0.3s;
 
@@ -183,21 +182,20 @@ body::after{
     position:absolute;
 
     left:0;
-
-    bottom:-6px;
+    bottom:-8px;
 
     width:0;
 
     height:2px;
 
-    background:
-    linear-gradient(
-    90deg,
-    #7aa8ff,
-    #c084fc
-    );
+    background:#c9a86a;
 
     transition:0.3s;
+}
+
+.desktop-nav a:hover{
+
+    color:white;
 }
 
 .desktop-nav a:hover::after{
@@ -216,48 +214,31 @@ body::after{
     align-items:center;
 
     padding:0 8%;
-
-    position:relative;
-
-    background:
-    linear-gradient(
-    rgba(255,255,255,0.45),
-    rgba(255,255,255,0.65)
-    ),
-
-    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=2070&auto=format&fit=crop');
-
-    background-size:cover;
-
-    background-position:center;
-}
-
-.hero::before{
-
-    content:'';
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(255,255,255,0.15),
-    transparent 70%);
 }
 
 .hero-content{
 
-    position:relative;
-
-    z-index:2;
-
     max-width:760px;
+
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .subtitle{
 
-    color:#6b7bbd;
+    color:#c9a86a;
 
     letter-spacing:4px;
 
@@ -265,30 +246,23 @@ body::after{
 
     font-size:0.9rem;
 
-    font-weight:700;
+    text-transform:uppercase;
 }
 
 .hero h1{
 
     font-family:'Cinzel', serif;
 
-    font-size:5.4rem;
+    font-size:5.8rem;
 
     line-height:1.05;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
 
-    background:
-    linear-gradient(
-    90deg,
-    #2c3e70,
-    #7c5cff,
-    #5ea8ff
-    );
+    color:white;
 
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
+    text-shadow:
+    0 0 25px rgba(255,255,255,0.12);
 }
 
 .description{
@@ -297,11 +271,11 @@ body::after{
 
     line-height:1.9;
 
-    color:#475569;
-
-    margin-bottom:40px;
+    color:#d0d0d0;
 
     max-width:650px;
+
+    margin-bottom:45px;
 }
 
 /* BOTONES */
@@ -317,9 +291,11 @@ body::after{
 
     text-decoration:none;
 
-    transition:0.35s;
+    transition:0.4s;
 
     font-weight:700;
+
+    margin-right:15px;
 }
 
 .primary-btn{
@@ -327,14 +303,14 @@ body::after{
     background:
     linear-gradient(
     135deg,
-    #6ea8ff,
-    #8b5cf6
+    #d4b06f,
+    #8f6a32
     );
 
     color:white;
 
     box-shadow:
-    0 15px 40px rgba(110,168,255,0.35);
+    0 15px 40px rgba(201,168,106,0.25);
 }
 
 .primary-btn:hover{
@@ -342,20 +318,26 @@ body::after{
     transform:
     translateY(-5px)
     scale(1.03);
-
-    box-shadow:
-    0 20px 50px rgba(139,92,246,0.35);
 }
 
 .secondary-btn{
 
-    background:
-    rgba(255,255,255,0.75);
-
-    color:#1e293b;
-
     border:
-    1px solid rgba(255,255,255,0.45);
+    1px solid rgba(255,255,255,0.18);
+
+    color:white;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    color:black;
 }
 
 /* SECCIONES */
@@ -364,7 +346,7 @@ body::after{
 .promotions,
 .booking{
 
-    padding:120px 8%;
+    padding:140px 8%;
 }
 
 /* TITULOS */
@@ -380,18 +362,22 @@ body::after{
 
     font-family:'Cinzel', serif;
 
-    font-size:3.2rem;
+    font-size:3.5rem;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 
-    color:#1e293b;
+    color:white;
 }
 
 .section-title p{
 
-    color:#64748b;
+    color:#bdbdbd;
 
-    font-size:1.05rem;
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
 }
 
 /* CARDS */
@@ -409,45 +395,23 @@ body::after{
 .card{
 
     background:
-    rgba(255,255,255,0.55);
-
-    backdrop-filter:blur(18px);
+    rgba(20,20,24,0.72);
 
     border:
-    1px solid rgba(255,255,255,0.45);
+    1px solid rgba(255,255,255,0.08);
 
-    border-radius:30px;
+    border-radius:28px;
 
     overflow:hidden;
 
-    box-shadow:
-    0 20px 50px rgba(100,120,255,0.10);
+    backdrop-filter:blur(10px);
 
-    transition:0.4s;
-}
-
-.card:hover{
-
-    transform:
-    translateY(-12px)
-    scale(1.02);
-
-    box-shadow:
-    0 30px 60px rgba(140,120,255,0.18);
-}
-
-.card-image{
-
-    height:280px;
-
-    background-size:cover;
-
-    background-position:center;
+    transition:0.5s;
 
     position:relative;
 }
 
-.card-image::after{
+.card::before{
 
     content:'';
 
@@ -458,11 +422,36 @@ body::after{
     background:
     linear-gradient(
     transparent,
-    rgba(0,0,0,0.08)
+    rgba(201,168,106,0.08)
     );
+
+    opacity:0;
+
+    transition:0.5s;
 }
 
-/* IMAGENES */
+.card:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:
+    rgba(201,168,106,0.35);
+}
+
+.card:hover::before{
+
+    opacity:1;
+}
+
+.card-image{
+
+    height:280px;
+
+    background-size:cover;
+
+    background-position:center;
+}
 
 .norway{
     background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
@@ -487,55 +476,49 @@ body::after{
 
     font-size:2rem;
 
-    margin-bottom:16px;
+    margin-bottom:15px;
 
-    color:#1e293b;
+    color:white;
 }
 
 .card-content p{
 
-    color:#64748b;
+    color:#c8c8c8;
 
     line-height:1.8;
 }
 
-/* PROMO */
+/* PROMOCIONES */
 
 .promo-box{
 
     background:
-    linear-gradient(
-    135deg,
-    rgba(255,255,255,0.72),
-    rgba(240,244,255,0.82)
-    );
+    rgba(20,20,24,0.72);
 
-    backdrop-filter:blur(20px);
+    border:
+    1px solid rgba(255,255,255,0.08);
 
     padding:90px;
 
-    border-radius:40px;
+    border-radius:35px;
 
     text-align:center;
 
-    box-shadow:
-    0 25px 60px rgba(120,120,255,0.12);
+    backdrop-filter:blur(10px);
 }
 
 .promo-box h2{
 
     font-family:'Cinzel', serif;
 
-    font-size:3rem;
+    font-size:3.5rem;
 
     margin-bottom:25px;
-
-    color:#1e293b;
 }
 
 .promo-box p{
 
-    color:#64748b;
+    color:#c8c8c8;
 
     line-height:1.9;
 
@@ -553,16 +536,14 @@ body::after{
 
     font-family:'Cinzel', serif;
 
-    font-size:3rem;
+    font-size:3.5rem;
 
     margin-bottom:25px;
-
-    color:#1e293b;
 }
 
 .booking-box p{
 
-    color:#64748b;
+    color:#c8c8c8;
 
     margin-bottom:40px;
 }
@@ -587,7 +568,7 @@ body::after{
 
     .hero h1{
 
-        font-size:3.8rem;
+        font-size:4rem;
     }
 }
 
@@ -607,7 +588,7 @@ body::after{
     .promo-box h2,
     .booking-box h2{
 
-        font-size:2.2rem;
+        font-size:2.3rem;
     }
 
     .promo-box{
