@@ -1,20 +1,18 @@
-/* js/script.js */
-
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
 
     if(window.scrollY > 50){
 
-        navbar.style.background = 'rgba(0,0,0,0.75)';
+        navbar.style.background = 'rgba(255,255,255,0.82)';
         navbar.style.borderBottom =
-        '1px solid rgba(255,255,255,0.15)';
+        '1px solid rgba(0,0,0,0.12)';
 
     }else{
 
-        navbar.style.background = 'rgba(0,0,0,0.45)';
+        navbar.style.background = 'rgba(255,255,255,0.55)';
         navbar.style.borderBottom =
-        '1px solid rgba(255,255,255,0.08)';
+        '1px solid rgba(0,0,0,0.08)';
     }
 });
 
