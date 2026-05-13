@@ -1,267 +1,474 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Skýra | Dragonic Journeys</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skýra — Donde los Dragones Guían tu Camino</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
 </head>
-
 <body>
 
-    <!-- VIDEO FONDO -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+  <canvas id="particles-canvas"></canvas>
 
-    <video autoplay muted loop playsinline class="video-bg">
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <div class="logo-dragon">
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 5 C20 5, 8 14, 8 28 C8 38, 15 46, 25 50 L30 55 L35 50 C45 46, 52 38, 52 28 C52 14, 40 5, 30 5Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+          <path d="M22 22 Q30 16 38 22 Q34 30 30 32 Q26 30 22 22Z" stroke="var(--gold)" stroke-width="1" fill="var(--gold-dim)"/>
+          <path d="M18 18 L14 12 M18 20 L12 20 M20 22 L14 26" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M42 18 L46 12 M42 20 L48 20 M40 22 L46 26" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/>
+          <circle cx="26" cy="24" r="1.5" fill="var(--ember)"/>
+          <circle cx="34" cy="24" r="1.5" fill="var(--ember)"/>
+          <path d="M27 34 Q30 40 33 34" stroke="var(--gold)" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <span class="logo-text">Skýra</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#destinos">Destinos</a></li>
+      <li><a href="#paquetes">Paquetes</a></li>
+      <li><a href="#experiencias">Experiencias</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#reservar" class="nav-cta">Reservar Ahora</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-        <source
-        src="https://cdn.coverr.co/videos/coverr-mountains-over-the-clouds-1560083433108?download=1080p"
-        type="video/mp4">
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#destinos" class="mobile-link">Destinos</a></li>
+      <li><a href="#paquetes" class="mobile-link">Paquetes</a></li>
+      <li><a href="#experiencias" class="mobile-link">Experiencias</a></li>
+      <li><a href="#nosotros" class="mobile-link">Nosotros</a></li>
+      <li><a href="#contacto" class="mobile-link">Contacto</a></li>
+      <li><a href="#reservar" class="mobile-link cta-mobile">Reservar Ahora</a></li>
+    </ul>
+  </div>
 
-    </video>
+  <section class="hero" id="hero">
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-vignette"></div>
+    </div>
+    <div class="rune-ring rune-ring-1"></div>
+    <div class="rune-ring rune-ring-2"></div>
+    <div class="hero-content" id="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Agencia de Viajes Élite · Norte de Europa
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line reveal-line">Donde los</span>
+        <span class="title-line reveal-line accent-line">Dragones</span>
+        <span class="title-line reveal-line">Guían tu Camino</span>
+      </h1>
+      <p class="hero-sub reveal-fade">
+        Skýra despierta al viajero que lleva fuego en las venas.<br/>
+        Expediciones épicas a los reinos del norte — Noruega, Irlanda,<br/>
+        Inglaterra, Escocia y Dinamarca.
+      </p>
+      <div class="hero-actions reveal-fade">
+        <a href="#reservar" class="btn-primary">
+          <span>Reservar Ahora</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#destinos" class="btn-ghost">Ver Destinos</a>
+      </div>
+      <div class="hero-stats reveal-fade">
+        <div class="stat"><span class="stat-num" data-target="1200">0</span><span class="stat-label">Viajeros</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Reinos</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-target="48">0</span><span class="stat-label">Rutas Épicas</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Descubre</span>
+    </div>
+  </section>
 
-    <div class="video-overlay"></div>
+  <div class="botanical-divider">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 Q180,20 360,60 Q540,100 720,60 Q900,20 1080,60 Q1260,100 1440,60 L1440,120 L0,120Z" fill="var(--bg-deep)"/>
+      <g stroke="var(--gold-dim)" stroke-width="0.8" fill="none" opacity="0.5">
+        <path d="M200,60 Q220,40 240,60 Q260,80 280,60"/>
+        <path d="M240,60 L240,20 M230,35 L240,20 L250,35"/>
+        <path d="M1200,60 Q1220,40 1240,60 Q1260,80 1280,60"/>
+        <path d="M1240,60 L1240,20 M1230,35 L1240,20 L1250,35"/>
+        <circle cx="720" cy="55" r="4" stroke="var(--gold)" stroke-width="1"/>
+        <path d="M690,55 Q705,40 720,55 Q735,40 750,55"/>
+      </g>
+    </svg>
+  </div>
 
-    <!-- NAVBAR -->
-
-    <header class="navbar">
-
-        <div class="brand">
-
-            <div class="logo">
-                <img src="images/logo.png" alt="Skýra Logo">
-            </div>
-
-            <div class="brand-text">
-
-                <h2>Skýra</h2>
-
-                <p>
-                    Dragonic Journeys
-                </p>
-
-            </div>
-
+  <section class="destinos" id="destinos">
+    <div class="section-header">
+      <div class="rune-label">✦ Los Cinco Reinos ✦</div>
+      <h2 class="section-title">Destinos Legendarios</h2>
+      <p class="section-desc">Cada reino tiene su dragón, su leyenda y su magia. Elige dónde comienza tu aventura.</p>
+    </div>
+    <div class="destinos-grid">
+      <div class="destino-card" data-index="0">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" alt="Noruega" loading="lazy" />
+          <div class="card-img-overlay"></div>
+          <div class="card-dragon-badge">🐉 Nidhogg</div>
         </div>
-
-        <nav>
-
-            <a href="#inicio">Inicio</a>
-            <a href="#destinos">Destinos</a>
-            <a href="#promos">Promociones</a>
-            <a href="#reservar">Reservar</a>
-
-        </nav>
-
-    </header>
-
-    <!-- HERO -->
-
-    <section class="hero" id="inicio">
-
-        <div class="hero-card">
-
-            <div class="hero-left">
-
-                <span class="tag">
-                    EXPERIENCIAS NÓRDICAS PREMIUM
-                </span>
-
-                <h1>
-                    Descubre rutas
-                    inspiradas en
-                    dragones y
-                    leyendas europeas.
-                </h1>
-
-                <p>
-                    Explora Noruega, Escocia, Irlanda, Inglaterra y Dinamarca
-                    en experiencias cinematográficas inspiradas en bosques
-                    místicos, castillos antiguos y criaturas legendarias.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#reservar" class="primary-btn">
-                        Reservar Ahora
-                    </a>
-
-                    <a href="#destinos" class="secondary-btn">
-                        Ver Destinos
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-right">
-
-                <div class="floating-card">
-
-                    <h3>
-                        Bosques Místicos
-                    </h3>
-
-                    <p>
-                        Experiencias inspiradas en naturaleza nórdica,
-                        dragones ancestrales y arquitectura medieval.
-                    </p>
-
-                </div>
-
-                <div class="floating-card">
-
-                    <h3>
-                        Destinos Premium
-                    </h3>
-
-                    <p>
-                        Aventuras cinematográficas diseñadas para viajeros
-                        modernos y exploradores épicos.
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="card-body">
+          <div class="card-region">Escandinavia</div>
+          <h3 class="card-title">Noruega</h3>
+          <p class="card-desc">Fiordos que cortan la tierra como garras de dragón. Auroras que iluminan el cielo como su fuego eterno.</p>
+          <div class="card-tags"><span>Auroras Boreales</span><span>Fiordos</span><span>Vikingos</span></div>
+          <div class="card-footer">
+            <div class="card-price">Desde <strong>$2.890 USD</strong></div>
+            <a href="#reservar" class="card-btn">Explorar</a>
+          </div>
         </div>
-
-    </section>
-
-    <!-- DESTINOS -->
-
-    <section class="destinations" id="destinos">
-
-        <div class="section-title">
-
-            <span>
-                DESTINOS DESTACADOS
-            </span>
-
-            <h2>
-                Explora tierras legendarias
-            </h2>
-
+      </div>
+      <div class="destino-card featured" data-index="1">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800&q=80" alt="Irlanda" loading="lazy" />
+          <div class="card-img-overlay"></div>
+          <div class="card-dragon-badge">🐉 Crom Cruach</div>
+          <div class="featured-badge">✦ Más Popular</div>
         </div>
-
-        <div class="destination-grid">
-
-            <div class="destination-card">
-
-                <div class="card-image norway"></div>
-
-                <div class="card-content">
-
-                    <h3>Noruega</h3>
-
-                    <p>
-                        Fiordos, auroras boreales y paisajes vikingos.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="destination-card">
-
-                <div class="card-image ireland"></div>
-
-                <div class="card-content">
-
-                    <h3>Irlanda</h3>
-
-                    <p>
-                        Bosques verdes, castillos y leyendas celtas.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="destination-card">
-
-                <div class="card-image scotland"></div>
-
-                <div class="card-content">
-
-                    <h3>Escocia</h3>
-
-                    <p>
-                        Highlands cubiertas de niebla y fortalezas antiguas.
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="card-body">
+          <div class="card-region">Islas Celtas</div>
+          <h3 class="card-title">Irlanda</h3>
+          <p class="card-desc">Acantilados donde los dragones duermen bajo el musgo milenario. Tierra de druidas, leyendas y whisky ancestral.</p>
+          <div class="card-tags"><span>Cliffs of Moher</span><span>Castillos</span><span>Celtic Magic</span></div>
+          <div class="card-footer">
+            <div class="card-price">Desde <strong>$2.490 USD</strong></div>
+            <a href="#reservar" class="card-btn">Explorar</a>
+          </div>
         </div>
-
-    </section>
-
-    <!-- PROMOCIONES -->
-
-    <section class="promo-section" id="promos">
-
-        <div class="promo-card">
-
-            <span>
-                PROMOCIÓN DE TEMPORADA
-            </span>
-
-            <h2>
-                Vive una experiencia
-                medieval premium.
-            </h2>
-
-            <p>
-                Obtén acceso a itinerarios exclusivos inspirados
-                en dragones europeos y paisajes cinematográficos.
-            </p>
-
-            <a href="#reservar" class="primary-btn">
-                Explorar Promoción
-            </a>
-
+      </div>
+      <div class="destino-card" data-index="2">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Escocia" loading="lazy" />
+          <div class="card-img-overlay"></div>
+          <div class="card-dragon-badge">🐉 Lindworm</div>
         </div>
-
-    </section>
-
-    <!-- RESERVA -->
-
-    <section class="booking-section" id="reservar">
-
-        <div class="booking-card">
-
-            <h2>
-                Comienza tu aventura
-            </h2>
-
-            <p>
-                Reserva ahora y transforma tu viaje
-                en una experiencia legendaria.
-            </p>
-
-            <a href="https://wa.me/56912345678"
-            target="_blank"
-            class="primary-btn">
-                Reservar Ahora
-            </a>
-
+        <div class="card-body">
+          <div class="card-region">Tierras Altas</div>
+          <h3 class="card-title">Escocia</h3>
+          <p class="card-desc">Las Highlands son el hogar de bestias antiguas. Niebla, gaitas y highlands que desafían el tiempo.</p>
+          <div class="card-tags"><span>Highlands</span><span>Loch Ness</span><span>Whisky</span></div>
+          <div class="card-footer">
+            <div class="card-price">Desde <strong>$2.190 USD</strong></div>
+            <a href="#reservar" class="card-btn">Explorar</a>
+          </div>
         </div>
+      </div>
+      <div class="destino-card" data-index="3">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" alt="Inglaterra" loading="lazy" />
+          <div class="card-img-overlay"></div>
+          <div class="card-dragon-badge">🐉 Y Ddraig Goch</div>
+        </div>
+        <div class="card-body">
+          <div class="card-region">Reino Unido</div>
+          <h3 class="card-title">Inglaterra</h3>
+          <p class="card-desc">Donde el dragón rojo de los reyes descansa en piedra milenaria. Historia viva entre castillos y jardines encantados.</p>
+          <div class="card-tags"><span>Stonehenge</span><span>Londres</span><span>Castillos</span></div>
+          <div class="card-footer">
+            <div class="card-price">Desde <strong>$2.290 USD</strong></div>
+            <a href="#reservar" class="card-btn">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="destino-card" data-index="4">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Dinamarca" loading="lazy" />
+          <div class="card-img-overlay"></div>
+          <div class="card-dragon-badge">🐉 Fáfnir</div>
+        </div>
+        <div class="card-body">
+          <div class="card-region">Escandinavia</div>
+          <h3 class="card-title">Dinamarca</h3>
+          <p class="card-desc">El reino de Fáfnir guarda su oro en colores de otoño. Diseño nórdico, gastronomía élite y costas de cuento.</p>
+          <div class="card-tags"><span>Copenhague</span><span>Hygge</span><span>Vikingos</span></div>
+          <div class="card-footer">
+            <div class="card-price">Desde <strong>$2.590 USD</strong></div>
+            <a href="#reservar" class="card-btn">Explorar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <div class="promo-marquee">
+    <div class="marquee-track">
+      <span>✦ Noruega</span><span>· Irlanda</span><span>· Escocia</span><span>· Inglaterra</span><span>· Dinamarca</span>
+      <span>✦ Noruega</span><span>· Irlanda</span><span>· Escocia</span><span>· Inglaterra</span><span>· Dinamarca</span>
+      <span>✦ Noruega</span><span>· Irlanda</span><span>· Escocia</span><span>· Inglaterra</span><span>· Dinamarca</span>
+    </div>
+  </div>
 
-    <script src="js/script.js"></script>
+  <section class="cinema-section" id="experiencias">
+    <div class="cinema-wrap">
+      <video class="cinema-video" autoplay muted loop playsinline>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
+      <div class="cinema-overlay"></div>
+      <div class="cinema-content">
+        <div class="rune-label">✦ La Experiencia Skýra ✦</div>
+        <h2>No Viajes.<br/><em>Vuela.</em></h2>
+        <p>Cada itinerario es diseñado como una saga épica. Tú eres el héroe. Nosotros somos el dragón que te guía.</p>
+        <a href="#reservar" class="btn-primary">Comienza tu Saga</a>
+      </div>
+    </div>
+  </section>
 
+  <section class="paquetes" id="paquetes">
+    <div class="section-header">
+      <div class="rune-label">✦ Escoge tu Camino ✦</div>
+      <h2 class="section-title">Paquetes Épicos</h2>
+      <p class="section-desc">Tres niveles de aventura. Una sola promesa: memorias que duran toda una vida.</p>
+    </div>
+    <div class="paquetes-grid">
+      <div class="paquete-card">
+        <div class="paquete-icon">🌿</div>
+        <div class="paquete-tier">Explorador</div>
+        <h3>Senderos del Bosque</h3>
+        <p>Para quienes buscan la magia en los caminos menos transitados.</p>
+        <ul class="paquete-features">
+          <li>✦ 7 noches · 8 días</li>
+          <li>✦ Hotel boutique 4★</li>
+          <li>✦ Guía bilingüe</li>
+          <li>✦ Traslados incluidos</li>
+          <li>✦ Desayunos</li>
+        </ul>
+        <div class="paquete-price">Desde <strong>$1.890 USD</strong> <span>/ persona</span></div>
+        <a href="#reservar" class="paquete-btn">Reservar</a>
+      </div>
+      <div class="paquete-card featured-paquete">
+        <div class="paquete-glow"></div>
+        <div class="paquete-icon">🐉</div>
+        <div class="paquete-tier">Dragón</div>
+        <h3>Vuelo del Dragón</h3>
+        <p>La experiencia completa Skýra. Itinerario personalizado y accesos exclusivos.</p>
+        <ul class="paquete-features">
+          <li>✦ 12 noches · 13 días</li>
+          <li>✦ Hotel 5★ + castle stay</li>
+          <li>✦ Guía privado</li>
+          <li>✦ Todo incluido</li>
+          <li>✦ Experiencias únicas</li>
+          <li>✦ Fotografía profesional</li>
+        </ul>
+        <div class="paquete-price">Desde <strong>$4.990 USD</strong> <span>/ persona</span></div>
+        <a href="#reservar" class="paquete-btn featured-btn">Reservar Ahora</a>
+      </div>
+      <div class="paquete-card">
+        <div class="paquete-icon">🔥</div>
+        <div class="paquete-tier">Leyenda</div>
+        <h3>Saga Completa</h3>
+        <p>Los cinco reinos en un gran viaje épico. Para quienes quieren conquistarlo todo.</p>
+        <ul class="paquete-features">
+          <li>✦ 21 noches · 22 días</li>
+          <li>✦ Suite en cada destino</li>
+          <li>✦ Concierge 24/7</li>
+          <li>✦ Todo premium</li>
+          <li>✦ Vuelos business</li>
+        </ul>
+        <div class="paquete-price">Desde <strong>$8.990 USD</strong> <span>/ persona</span></div>
+        <a href="#reservar" class="paquete-btn">Reservar</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="leaf-divider">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 40 Q360 0 720 40 Q1080 80 1440 40" stroke="var(--gold-dim)" stroke-width="1" fill="none"/>
+      <g fill="var(--gold-dim)" opacity="0.6">
+        <ellipse cx="360" cy="20" rx="8" ry="3" transform="rotate(-20 360 20)"/>
+        <ellipse cx="720" cy="40" rx="10" ry="4"/>
+        <ellipse cx="1080" cy="60" rx="8" ry="3" transform="rotate(20 1080 60)"/>
+      </g>
+    </svg>
+  </div>
+
+  <section class="testimonios">
+    <div class="section-header">
+      <div class="rune-label">✦ Voces del Norte ✦</div>
+      <h2 class="section-title">Lo Que Dicen los Viajeros</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <p>"Skýra convirtió mi viaje a Noruega en algo completamente mágico. Cada detalle parecía sacado de una saga vikinga."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">M</div>
+          <div><strong>María Fernández</strong><br/><span>Santiago, Chile</span></div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <p>"El castle stay en Escocia fue una experiencia que no olvidaré jamás. La atención fue extraordinaria, digna de reyes."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">C</div>
+          <div><strong>Carlos Reyes</strong><br/><span>Buenos Aires, Argentina</span></div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">★★★★★</div>
+        <p>"Irlanda con Skýra es otra dimensión. Los acantilados al atardecer con nuestro guía narrando leyendas celtas... inolvidable."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">A</div>
+          <div><strong>Andrea López</strong><br/><span>Ciudad de México</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="reservar">
+    <div class="cta-bg">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=70" alt="" />
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="cta-runes">
+      <div class="rune-ring cta-ring-1"></div>
+      <div class="rune-ring cta-ring-2"></div>
+    </div>
+    <div class="cta-content">
+      <div class="rune-label">✦ Tu Aventura Comienza ✦</div>
+      <h2>¿Listo para<br/><em>Volar?</em></h2>
+      <p>Habla con un guardián Skýra. Diseñamos tu viaje épico a medida, sin costos adicionales por asesoría.</p>
+      <form class="cta-form" id="cta-form">
+        <div class="form-row">
+          <input type="text" placeholder="Tu nombre" required />
+          <input type="email" placeholder="Tu email" required />
+        </div>
+        <div class="form-row">
+          <select>
+            <option value="" disabled selected>Destino soñado</option>
+            <option>Noruega</option><option>Irlanda</option><option>Escocia</option>
+            <option>Inglaterra</option><option>Dinamarca</option><option>Saga Completa (todos)</option>
+          </select>
+          <select>
+            <option value="" disabled selected>Tipo de paquete</option>
+            <option>Explorador</option><option>Vuelo del Dragón</option><option>Saga Completa</option>
+          </select>
+        </div>
+        <textarea placeholder="Cuéntanos tu sueño de viaje..." rows="3"></textarea>
+        <button type="submit" class="btn-primary form-submit">
+          <span>Enviar mi Solicitud</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-grid">
+      <div class="nosotros-visual">
+        <div class="nosotros-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Escocia" />
+          <div class="nosotros-img-accent"></div>
+        </div>
+        <div class="nosotros-badge-float">
+          <span class="big-num">8+</span>
+          <span>Años creando<br/>aventuras épicas</span>
+        </div>
+      </div>
+      <div class="nosotros-text">
+        <div class="rune-label">✦ Nuestra Historia ✦</div>
+        <h2 class="section-title">Nacimos del Fuego<br/>del Norte</h2>
+        <p>Skýra nació de la obsesión por los paisajes que te quitan el aliento y las historias que no puedes dejar de contar. El nombre proviene del nórdico antiguo: <em>"aclarar, iluminar el camino"</em>.</p>
+        <p>Como los dragones europeos — guardianes de tesoros y sabiduría — nosotros custodiamos los secretos más profundos del norte de Europa para revelarlos al viajero que es digno de descubrirlos.</p>
+        <div class="nosotros-values">
+          <div class="value-item">
+            <div class="value-icon">🌿</div>
+            <div><strong>Turismo Consciente</strong><p>Impacto positivo en cada comunidad que visitamos.</p></div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🐉</div>
+            <div><strong>Experiencias Únicas</strong><p>Accesos que ninguna agencia ordinaria puede ofrecer.</p></div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⚡</div>
+            <div><strong>Atención 24/7</strong><p>Un guardián siempre disponible durante tu viaje.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="48">
+            <path d="M30 5 C20 5, 8 14, 8 28 C8 38, 15 46, 25 50 L30 55 L35 50 C45 46, 52 38, 52 28 C52 14, 40 5, 30 5Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+            <path d="M22 22 Q30 16 38 22 Q34 30 30 32 Q26 30 22 22Z" stroke="var(--gold)" stroke-width="1" fill="var(--gold-dim)"/>
+            <circle cx="26" cy="24" r="1.5" fill="var(--ember)"/>
+            <circle cx="34" cy="24" r="1.5" fill="var(--ember)"/>
+          </svg>
+          <span>Skýra</span>
+        </div>
+        <p class="footer-tagline"><em>Work fast. Live slow.</em><br/>Donde los Dragones Guían tu Camino.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Destinos</h4>
+        <ul>
+          <li><a href="#">Noruega</a></li>
+          <li><a href="#">Irlanda</a></li>
+          <li><a href="#">Escocia</a></li>
+          <li><a href="#">Inglaterra</a></li>
+          <li><a href="#">Dinamarca</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Skýra</h4>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Paquetes</a></li>
+          <li><a href="#">Galería</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>📧 hola@skyra.travel</p>
+        <p>📞 +56 9 1234 5678</p>
+        <p>📍 Santiago, Chile</p>
+        <p style="margin-top:1rem;font-size:0.8rem;color:var(--gold);opacity:0.7">Lun–Vie: 9:00–19:00<br/>Sáb: 10:00–14:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Skýra Travel Agency · Todos los derechos reservados</p>
+      <div class="footer-legal">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
