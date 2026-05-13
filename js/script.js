@@ -1,48 +1,32 @@
-const navbar = document.querySelector('.navbar');
+const heroCard = document.querySelector('.hero-card');
 
-window.addEventListener('scroll', () => {
+window.addEventListener('mousemove', (e) => {
 
-    if(window.scrollY > 50){
+    const x =
+    (window.innerWidth / 2 - e.pageX) / 50;
 
-        navbar.style.background =
-        'rgba(255,255,255,0.92)';
+    const y =
+    (window.innerHeight / 2 - e.pageY) / 50;
 
-    }else{
-
-        navbar.style.background =
-        'rgba(255,255,255,0.78)';
-    }
+    heroCard.style.transform =
+    `rotateY(${x}deg) rotateX(${-y}deg)`;
 });
 
-/* ANIMACION TARJETAS */
+/* PROMO HOVER */
 
-const cards = document.querySelectorAll('.card');
+const promoCards =
+document.querySelectorAll('.promo-card');
 
-const observer = new IntersectionObserver((entries) => {
+promoCards.forEach((card) => {
 
-    entries.forEach((entry) => {
+    card.addEventListener('mouseenter', () => {
 
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity = '1';
-
-            entry.target.style.transform =
-            'translateY(0)';
-        }
+        card.style.boxShadow =
+        '0 20px 40px rgba(214,176,107,0.15)';
     });
 
-},{
-    threshold:0.2
-});
+    card.addEventListener('mouseleave', () => {
 
-cards.forEach((card) => {
-
-    card.style.opacity = '0';
-
-    card.style.transform = 'translateY(40px)';
-
-    card.style.transition =
-    'all 1s ease';
-
-    observer.observe(card);
+        card.style.boxShadow = 'none';
+    });
 });
