@@ -1,25 +1,29 @@
-/* NAVBAR TRANSPARENCIA */
+/* NAVBAR */
 
-const navbar = document.querySelector('.navbar');
+const navbar =
+document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
 
     if(window.scrollY > 50){
 
         navbar.style.background =
-        'rgba(10,10,12,0.78)';
+        'rgba(8,8,10,0.85)';
 
     }else{
 
         navbar.style.background =
-        'rgba(15,15,18,0.55)';
+        'rgba(12,12,15,0.60)';
     }
 });
 
-/* ANIMACION CARDS */
+/* ANIMACIONES */
 
 const cards =
 document.querySelectorAll('.card');
+
+const promoCards =
+document.querySelectorAll('.promo-card');
 
 const observer =
 new IntersectionObserver((entries) => {
@@ -39,12 +43,14 @@ new IntersectionObserver((entries) => {
     threshold:0.2
 });
 
+/* CARDS */
+
 cards.forEach((card) => {
 
     card.style.opacity = '0';
 
     card.style.transform =
-    'translateY(50px)';
+    'translateY(40px)';
 
     card.style.transition =
     'all 1s ease';
@@ -52,19 +58,17 @@ cards.forEach((card) => {
     observer.observe(card);
 });
 
-/* HERO PARALLAX */
+/* PROMOS */
 
-const hero =
-document.querySelector('.hero-card-image');
+promoCards.forEach((card) => {
 
-window.addEventListener('mousemove', (e) => {
+    card.style.opacity = '0';
 
-    let x =
-    (window.innerWidth / 2 - e.pageX) / 80;
+    card.style.transform =
+    'translateY(40px)';
 
-    let y =
-    (window.innerHeight / 2 - e.pageY) / 80;
+    card.style.transition =
+    'all 1s ease';
 
-    hero.style.transform =
-    `translate(${x}px, ${y}px)`;
+    observer.observe(card);
 });
